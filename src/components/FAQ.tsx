@@ -16,7 +16,27 @@ const faqData: FAQItem[] = [
   },
   {
     question: 'Preciso dar entrada para participar de um consórcio Skoni?',
-    answer: 'Não é obrigatório. Você pode simular seu consórcio com ou sem entrada, escolhendo o valor ideal. Dar uma entrada reduz as parcelas mensais, mas não é uma exigência.',
+    answer: 'Não é necessário. O consórcio é uma modalidade de compra sem juros e sem entrada.',
+  },
+  {
+    question: 'Posso acelerar a minha contemplação?',
+    answer: 'Caso queira acelerar sua contemplação, você pode ofertar um lance, escolhendo o valor ideal. Dar um lance também reduz as parcelas mensais, mas não é uma exigência.',
+  },
+  {
+    question: 'Quantas pessoas são contempladas por mês?',
+    answer: 'O número de contemplações mensais é um indicador que a Skoni avalia em todos os atendimentos. Nosso foco é escolher o melhor grupo com o maior número possível de contemplações, podendo chegar a mais de 50 contemplados por mês em um único grupo.',
+  },
+  {
+    question: 'O que é alavancagem patrimonial?',
+    answer: 'É uma forma de aumentar seu patrimônio ao mesmo em que recebe um retorno financeiro, por exemplo, depois de contemplar um consórcio imobiliário, você compra um apartamento e coloca para alugar, assim o seu inquilino paga o restante do apartamento para você.',
+  },
+  {
+    question: 'O que é alavancagem financeira?',
+    answer: 'É quando você recebe um valor bem mais alto do que o valor que você precisou desembolsar, por exemplo, quando você vende uma carta contemplada, pode lucrar até 900% a mais do que pagou naquela carta.',
+  },
+  {
+    question: 'Quais os diferenciais dos consórcios da Skoni?',
+    answer: 'Trabalhamos com cotas sem taxa de adesão, sem fundo de reserva, sem seguro prestamista e sem reajustes anuais. Conseguimos buscar opções em todo o mercado brasileiro, inclusive com parcelas super reduzidas para realizar os seus sonhos o quanto antes!',
   },
   {
     question: 'Quais são as modalidades de consórcio disponíveis?',

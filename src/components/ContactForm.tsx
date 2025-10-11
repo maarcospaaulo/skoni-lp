@@ -154,8 +154,9 @@ const ContactForm = ({ estimatedValue, initialModality }: ContactFormProps) => {
         <div>
           <label htmlFor="modality" className="mb-1 block text-sm font-medium text-[#000046]">Modalidade</label>
           <select id="modality" name="modality" value={formData.modality} onChange={handleChange} className={inputStyle}>
-            <option value="imovel">Imóvel</option>
-            <option value="veiculo">Veículo</option>
+            <option value="imóvel">Imóvel</option>
+            <option value="veículo">Veículo</option>
+            <option value="caminhão">Caminhão</option>
             <option value="moto">Moto</option>
             <option value="cirurgia">Cirurgia</option>
             <option value="viagem">Viagem</option>

@@ -5,7 +5,7 @@ import Modal from '@/components/Modal';
 import ContactForm from '@/components/ContactForm';
 
 // --- Tipos e Constantes ---
-type Modality = 'imovel' | 'veiculo' | 'moto' | 'cirurgia' | 'viagem';
+type Modality = 'imóvel' | 'veículo' | 'caminhão' | 'moto' | 'cirurgia' | 'viagem';
 
 interface SimulationResult {
   monthlyPayment: number;
@@ -26,7 +26,7 @@ const formatCurrency = (value: number) => {
 // --- Componente Principal ---
 const Simulator = () => {
   // --- Estados do Formulário (valores em centavos) ---
-  const [modality, setModality] = useState<Modality>('imovel');
+  const [modality, setModality] = useState<Modality>('imóvel');
   const [desiredValue, setDesiredValue] = useState(10000000); // R$ 100.000,00 em centavos
   const [downPayment, setDownPayment] = useState(0);
   const [termInMonths, setTermInMonths] = useState<number>(60);
@@ -56,7 +56,7 @@ const Simulator = () => {
 
     const principal = numericDesiredValue - numericDownPayment;
     if (principal <= 0) {
-      alert('O valor desejado deve ser maior que a entrada.');
+      alert('O valor desejado deve ser maior que o lance.');
       return;
     }
 
@@ -104,8 +104,8 @@ const Simulator = () => {
         <form onSubmit={handleSubmit} className="mt-12 space-y-8">
           <fieldset>
             <legend className="block text-sm font-medium text-black mb-3">Modalidade</legend>
-            <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
-              {(['imovel', 'veiculo', 'moto', 'cirurgia', 'viagem'] as Modality[]).map(m => (
+            <div className="grid grid-cols-2 sm:grid-cols-6 gap-3">
+              {(['imóvel', 'veículo', 'caminhão', 'moto', 'cirurgia', 'viagem'] as Modality[]).map(m => (
                 <button key={m} type="button" onClick={() => setModality(m)} className={`w-full px-4 py-3 text-sm font-semibold rounded-lg transition-all duration-200 ${modality === m ? 'bg-[#A43293] text-white shadow-lg' : 'bg-white text-black hover:bg-gray-50'}`}>
                   {m.charAt(0).toUpperCase() + m.slice(1)}
                 </button>
@@ -127,10 +127,10 @@ const Simulator = () => {
               />
             </div>
             <div>
-              <label htmlFor="entrada" className="block text-sm font-medium text-black">Entrada (Opcional)</label>
+              <label htmlFor="lance" className="block text-sm font-medium text-black">Lance (Opcional)</label>
               <input
                 type="text"
-                id="entrada"
+                id="lance"
                 value={formatToCurrencyBRL(downPayment)}
                 onChange={(e) => handleCurrencyChange(e, setDownPayment)}
                 onKeyDown={(e) => handleCurrencyKeyDown(e, setDownPayment)}
@@ -180,7 +180,7 @@ const Simulator = () => {
             </div>
             <p className="mt-5 text-xs text-center text-gray-600">* Esta é uma estimativa. Os valores finais podem variar e dependem da análise de crédito e das regras do grupo de consórcio. Consulte o regulamento.</p>
             <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4">
-                <a href="https://wa.me/5511999999999?text=Olá, fiz uma simulação no site e gostaria de falar com um especialista." target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-[#25D366] hover:bg-green-700 transition-all duration-300 transform hover:scale-105">
+                <a href="https://wa.me/5511990143199?text=Olá, fiz uma simulação no site e gostaria de falar com um especialista." target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-[#25D366] hover:bg-green-700 transition-all duration-300 transform hover:scale-105">
                     Falar com Especialista
                 </a>
                 <button onClick={openModal} className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-[#A43293] hover:bg-[#8e2b7f] transition-all duration-300 transform hover:scale-105">

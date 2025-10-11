@@ -27,7 +27,7 @@ interface ContactLinkProps {
 
 const ContactLink = ({ href, Icon, text }: ContactLinkProps) => (
   <li className="flex items-center">
-    <a href={href} className="flex items-center gap-3 text-gray-300 transition-colors hover:text-[#A43293]">
+    <a href={href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-300 transition-colors hover:text-[#A43293]">
       <Icon size={18} aria-hidden="true" />
       <span>{text}</span>
     </a>
@@ -65,7 +65,7 @@ const Footer = () => {
               className="-ml-2" // Ajuste fino de alinhamento
             />
             <p className="mt-4 text-sm leading-relaxed text-gray-300">
-              Planejamento financeiro inteligente para você conquistar seus sonhos sem pagar juros abusivos.
+              A escolha inteligente para construir o seu futuro.
             </p>
           </div>
 
@@ -84,8 +84,8 @@ const Footer = () => {
           <div>
             <h3 className="text-base font-semibold">Suporte</h3>
             <ul className="mt-4 space-y-3">
-              <ContactLink href="tel:+5511999999999" Icon={Phone} text="(11) 99999-9999" />
-              <ContactLink href="https://wa.me/5511999999999" Icon={MessageSquare} text="WhatsApp" />
+              <ContactLink href="tel:+5511990143199" Icon={Phone} text="(11) 99014-3199" />
+              <ContactLink href="https://wa.me/5511990143199" Icon={MessageSquare} text="WhatsApp" />
               <ContactLink href="mailto:contato@skoni.com.br" Icon={Mail} text="contato@skoni.com.br" />
             </ul>
           </div>
