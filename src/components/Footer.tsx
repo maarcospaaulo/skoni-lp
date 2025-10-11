@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import {
-  Phone, Mail, MessageSquare, Linkedin, Instagram, Facebook 
+  Phone, Mail, MessageSquare, Instagram, Facebook 
 } from 'lucide-react';
 
 // --- Componentes de Ícone e Links --- //
@@ -73,10 +73,11 @@ const Footer = () => {
           <div>
             <h3 className="text-base font-semibold">Navegação</h3>
             <ul className="mt-4 space-y-3">
-              <FooterLink href="#sobre">Sobre</FooterLink>
-              <FooterLink href="#simulador">Simule agora</FooterLink>
+              <FooterLink href="#como-funciona">Como funciona</FooterLink>
+              <FooterLink href="#simulador">Simulador</FooterLink>
+              <FooterLink href="#beneficios">Benefícios</FooterLink>
               <FooterLink href="#faq">FAQ</FooterLink>
-              <FooterLink href="#contato">Contato</FooterLink>
+              <FooterLink href="https://wa.me/5511990143199">Contato</FooterLink>
             </ul>
           </div>
 
@@ -94,16 +95,15 @@ const Footer = () => {
           <div>
             <h3 className="text-base font-semibold">Redes Sociais</h3>
             <div className="mt-4 flex items-center space-x-5">
-              <SocialLink href="#" Icon={Linkedin} label="LinkedIn da Skoni" />
-              <SocialLink href="#" Icon={Instagram} label="Instagram da Skoni" />
-              <SocialLink href="#" Icon={Facebook} label="Facebook da Skoni" />
+              <SocialLink href="https://www.instagram.com/skoniconsorcios" Icon={Instagram} label="Instagram da Skoni" />
+              <SocialLink href="https://www.facebook.com/skoniconsorcios" Icon={Facebook} label="Facebook da Skoni" />
             </div>
           </div>
         </div>
 
         {/* Linha inferior com direitos autorais */}
         <div className="mt-16 border-t border-[#DFD2CF]/30 pt-8 sm:flex sm:items-center sm:justify-between">
-          <p className="text-sm text-gray-300">&copy; {new Date().getFullYear()} Skoni Consórcios. Todos os direitos reservados.</p>
+          <p className="text-sm text-gray-300">&copy; 2025 Skoni Consórcios. Todos os direitos reservados.</p>
           <a href="#" className="mt-4 block text-sm text-gray-300 transition-colors hover:text-[#A43293] sm:mt-0">
             Política de Privacidade
           </a>
