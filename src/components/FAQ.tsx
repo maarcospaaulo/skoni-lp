@@ -55,14 +55,13 @@ const faqData: FAQItem[] = [
 // Componente do ícone de expandir/recolher
 const AccordionIcon = ({ isOpen }: { isOpen: boolean }) => (
   <svg
-    className={`w-6 h-6 text-[#A43293] transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+    className={`w-6 h-6 text-gray-500 transition-transform duration-300 transform ${isOpen ? 'rotate-45' : ''}`}
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
   >
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v12m-6-6h12" />
   </svg>
 );
 
@@ -76,44 +75,58 @@ const FAQ = () => {
 
   return (
     <section id="faq" className="bg-white py-20 sm:py-28">
-      <div className="mx-auto max-w-3xl px-6 lg:px-8">
-        <h2 className="text-center text-3xl font-bold tracking-tight text-[#000046] sm:text-4xl">
-          Perguntas Frequentes
-        </h2>
-        <div className="mt-12 space-y-6">
-          {faqData.map((item, index) => {
-            const isOpen = openIndex === index;
-            const questionId = `faq-question-${index}`;
-            const answerId = `faq-answer-${index}`;
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="lg:grid lg:grid-cols-2 lg:gap-16">
+          {/* Coluna da Esquerda: Título e CTA */}
+          <div className="flex flex-col justify-center">
+            <p className="text-base font-semibold leading-7 text-[#A43293]">FAQ</p>
+            <h2 className="mt-2 text-4xl font-bold tracking-tight text-[#000046] sm:text-5xl leading-tight">
+              Perguntas frequentes sobre como funciona o consórcio
+            </h2>
+            <a
+              href="#contact"
+              className="mt-8 inline-block w-auto self-start rounded-full bg-[#C8F466] px-8 py-3 text-center text-lg font-semibold text-[#000046] shadow-sm hover:bg-lime-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-500"
+            >
+              Fale Conosco
+            </a>
+          </div>
 
-            return (
-              <div key={index} className="bg-slate-50/70 rounded-xl border border-slate-200 shadow-sm">
-                <h3>
-                  <button
-                    onClick={() => handleToggle(index)}
-                    aria-expanded={isOpen}
-                    aria-controls={answerId}
-                    id={questionId}
-                    className="flex w-full items-center justify-between p-6 text-left text-lg font-medium text-[#000046] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C86236] focus-visible:ring-offset-4 focus-visible:ring-offset-slate-50 rounded-xl"
-                  >
-                    <span>{item.question}</span>
-                    <AccordionIcon isOpen={isOpen} />
-                  </button>
-                </h3>
-                <div
-                  id={answerId}
-                  role="region"
-                  aria-labelledby={questionId}
-                  className={`grid overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
-                  <div className="min-h-0">
-                    <p className="text-base text-[#000046] px-6 pb-6">
-                      {item.answer}
-                    </p>
+          {/* Coluna da Direita: Acordeão */}
+          <div className="mt-12 space-y-0 lg:mt-0">
+            {faqData.map((item, index) => {
+              const isOpen = openIndex === index;
+              const questionId = `faq-question-${index}`;
+              const answerId = `faq-answer-${index}`;
+
+              return (
+                <div key={index} className="border-b border-gray-200 py-6">
+                  <h3>
+                    <button
+                      onClick={() => handleToggle(index)}
+                      aria-expanded={isOpen}
+                      aria-controls={answerId}
+                      id={questionId}
+                      className="flex w-full items-center justify-between text-left text-lg font-medium text-[#000046] focus:outline-none"
+                    >
+                      <span className="flex-1 pr-4">{item.question}</span>
+                      <AccordionIcon isOpen={isOpen} />
+                    </button>
+                  </h3>
+                  <div
+                    id={answerId}
+                    role="region"
+                    aria-labelledby={questionId}
+                    className={`grid overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+                    <div className="min-h-0">
+                      <p className="text-base text-gray-600 pt-4 pr-6">
+                        {item.answer}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
