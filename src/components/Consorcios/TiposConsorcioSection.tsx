@@ -9,10 +9,10 @@ const consortiumTypes = [
     link: 'https://wa.me/5511990143199?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20cons%C3%B3rcio%20de%20Im%C3%B3vel.',
   },
   {
-    title: 'Veículo',
+    title: 'Carro',
     description: 'Compre seu <b>carro novo</b> ou seminovo sem pagar juros abusivos. O consórcio de veículos permite que você escolha o modelo e a marca que desejar, oferecendo <b>planos flexíveis</b> e poder de compra à vista. Acelere a conquista do seu <b>automóvel dos sonhos</b>.',
     imageSrc: '/consorcio-carro.png',
-    link: 'https://wa.me/5511990143199?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20cons%C3%B3rcio%20de%20Ve%C3%ADculo.',
+    link: 'https://wa.me/5511990143199?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20cons%C3%B3rcio%20de%20Carro.',
   },
   {
     title: 'Moto',
