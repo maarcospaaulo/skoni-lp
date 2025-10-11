@@ -1,15 +1,14 @@
-'use client';
-
-import React, { useState } from 'react';
+import React from 'react';
+import FAQItem from './FAQItem'; // Importando o novo Client Component
 
 // Define a interface para cada item do FAQ para garantir a tipagem estrita
-interface FAQItem {
+interface FAQData {
   question: string;
   answer: string;
 }
 
 // Dados das perguntas e respostas
-const faqData: FAQItem[] = [
+const faqData: FAQData[] = [
   {
     question: 'O que é consórcio e como funciona na Skoni?',
     answer: 'O consórcio é uma forma de comprar imóvel, carro, moto, cirurgia ou viagem sem pagar juros abusivos. Na Skoni, você entra em um grupo, paga parcelas mensais e pode ser contemplado por sorteio ou lance. É planejamento financeiro inteligente para conquistar seu objetivo.',
@@ -52,27 +51,7 @@ const faqData: FAQItem[] = [
   },
 ];
 
-// Componente do ícone de expandir/recolher
-const AccordionIcon = ({ isOpen }: { isOpen: boolean }) => (
-  <svg
-    className={`w-6 h-6 text-gray-500 transition-transform duration-300 transform ${isOpen ? 'rotate-45' : ''}`}
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v12m-6-6h12" />
-  </svg>
-);
-
 const FAQ = () => {
-  // Estado para controlar qual item do acordeão está aberto
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const handleToggle = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   return (
     <section id="faq" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -93,39 +72,9 @@ const FAQ = () => {
 
           {/* Coluna da Direita: Acordeão */}
           <div className="mt-12 space-y-0 lg:mt-0">
-            {faqData.map((item, index) => {
-              const isOpen = openIndex === index;
-              const questionId = `faq-question-${index}`;
-              const answerId = `faq-answer-${index}`;
-
-              return (
-                <div key={index} className="border-b border-gray-200 py-6">
-                  <h3>
-                    <button
-                      onClick={() => handleToggle(index)}
-                      aria-expanded={isOpen}
-                      aria-controls={answerId}
-                      id={questionId}
-                      className="flex w-full items-center justify-between text-left text-lg font-medium text-[#000046] focus:outline-none"
-                    >
-                      <span className="flex-1 pr-4">{item.question}</span>
-                      <AccordionIcon isOpen={isOpen} />
-                    </button>
-                  </h3>
-                  <div
-                    id={answerId}
-                    role="region"
-                    aria-labelledby={questionId}
-                    className={`grid overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
-                    <div className="min-h-0">
-                      <p className="text-base text-gray-600 pt-4 pr-6">
-                        {item.answer}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+            {faqData.map((item, index) => (
+              <FAQItem key={index} question={item.question} answer={item.answer} />
+            ))}
           </div>
         </div>
       </div>
