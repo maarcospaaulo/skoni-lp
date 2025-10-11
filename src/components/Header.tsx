@@ -58,7 +58,7 @@ const Header = () => {
           <div className="hidden md:block">
             <Link
               href="#simulador"
-              className="bg-[#A43293] text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300 hover:bg-[#8e2b7f] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A43293]"
+              className="bg-[#A43293] text-white px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300 hover:bg-[#8e2b7f] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A43293]"
             >
               Simule Agora
             </Link>
@@ -109,7 +109,7 @@ const Header = () => {
                 <Link
                   href="#simulador"
                   onClick={() => setIsMenuOpen(false)}
-                  className="block w-full text-center bg-[#A43293] text-white px-4 py-2 rounded-md text-base font-medium transition-colors duration-300 hover:bg-[#8e2b7f] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+                  className="block w-full text-center bg-[#A43293] text-white px-4 py-2 rounded-full text-base font-medium transition-colors duration-300 hover:bg-[#8e2b7f] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
                 >
                   Simule Agora
                 </Link>

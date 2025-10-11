@@ -109,7 +109,7 @@ const Simulator = () => {
             <legend className="block text-sm font-medium text-gray-600 mb-3">Modalidade</legend>
             <div className="grid grid-cols-2 sm:grid-cols-6 gap-3">
               {(['imóvel', 'veículo', 'caminhão', 'moto', 'cirurgia', 'viagem'] as Modality[]).map(m => (
-                <button key={m} type="button" onClick={() => setModality(m)} className={`w-full px-4 py-3 text-sm font-semibold rounded-lg transition-all duration-200 ${modality === m ? 'bg-[#000046] text-white shadow-lg' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}`}>
+                <button key={m} type="button" onClick={() => setModality(m)} className={`w-full px-4 py-3 text-sm font-semibold rounded-full transition-all duration-200 ${modality === m ? 'bg-[#C86236] text-white shadow-lg' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}`}>
                   {m.charAt(0).toUpperCase() + m.slice(1)}
                 </button>
               ))}
@@ -154,7 +154,7 @@ const Simulator = () => {
           </fieldset>
 
           <div className="text-center pt-6">
-            <button type="submit" className="w-full md:w-auto inline-flex items-center justify-center px-16 py-4 border border-transparent text-lg font-bold rounded-lg text-white bg-[#000046] hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#000046] transition-transform transform hover:scale-105">
+            <button type="submit" className="w-full md:w-auto inline-flex items-center justify-center rounded-full bg-[#C86236] px-8 py-3 text-center text-lg font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-lime-500">
               Calcular Estimativa
             </button>
           </div>
@@ -183,10 +183,10 @@ const Simulator = () => {
             </div>
             <p className="mt-5 text-xs text-center text-gray-600">* Esta é uma estimativa. Os valores finais podem variar e dependem da análise de crédito e das regras do grupo de consórcio. Consulte o regulamento.</p>
             <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4">
-                <a href="https://wa.me/5511990143199?text=Olá, fiz uma simulação no site e gostaria de falar com um especialista." target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-[#25D366] hover:bg-green-700 transition-all duration-300 transform hover:scale-105">
+                <a href="https://wa.me/5511990143199?text=Olá, fiz uma simulação no site e gostaria de falar com um especialista." target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-[#C86236] px-8 py-3 text-center text-base font-medium text-white shadow-sm">
                     Falar com Especialista
                 </a>
-                <button onClick={openModal} className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-[#A43293] hover:bg-[#8e2b7f] transition-all duration-300 transform hover:scale-105">
+                <button onClick={openModal} className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-[#A43293] hover:bg-[#8e2b7f] transition-all duration-300 transform hover:scale-105">
                     Quero ser Contatado
                 </button>
             </div>

@@ -28,10 +28,9 @@ const Hero = () => {
             <div className="mt-8 flex flex-col items-center gap-4 lg:items-start">
               <Link
                 href="#simulador"
-                className="group inline-flex items-center justify-center rounded-md px-8 py-3 text-lg font-semibold text-white bg-[#A43293] transition-all duration-300 hover:bg-gradient-to-r from-[#A43293] to-[#000046] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A43293]"
+                className="inline-block rounded-full bg-[#C8F466] px-8 py-3 text-center text-lg font-semibold text-[#000046] shadow-sm hover:bg-[#C86236] hover:text-white focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-lime-500 transition-colors duration-300"
               >
                 Simule Agora
-                <span className="ml-2 animate-[back-and-forth_1s_ease-in-out_infinite]">→</span>
               </Link>
               <p className="text-sm text-black">
                 ✔ 100% online & rápido | ✔ Sem juros | ✔ Confiável
