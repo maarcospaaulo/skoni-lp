@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import HowItWorks from "@/components/HowItWorks";
 import Simulator from "@/components/Simulator";
 import Benefits from "@/components/Benefits";
 import FAQ from "@/components/FAQ";
@@ -10,6 +11,7 @@ export default function Home() {
     <main>
       <Header />
       <Hero />
+      <HowItWorks />
       <Simulator />
       <Benefits />
       <FAQ />

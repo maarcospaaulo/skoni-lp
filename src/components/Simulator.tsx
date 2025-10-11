@@ -95,18 +95,21 @@ const Simulator = () => {
   };
 
   return (
-    <section id="simulador" aria-labelledby="simulator-title" className="bg-[#DFD2CF] py-16 sm:py-24">
+    <section id="simulador" aria-labelledby="simulator-title" className="bg-white py-16 sm:py-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 id="simulator-title" className="text-3xl font-extrabold text-center text-[#000046]">
-          Simulador de Consórcio
-        </h2>
+        <div className="mx-auto max-w-2xl lg:text-center">
+          <p className="text-base font-semibold leading-7 text-[#A43293]">Grátis e rápido</p>
+          <h2 id="simulator-title" className="text-3xl font-extrabold text-[#000046]">
+            Simulador de Consórcio
+          </h2>
+        </div>
         
         <form onSubmit={handleSubmit} className="mt-12 space-y-8">
           <fieldset>
-            <legend className="block text-sm font-medium text-black mb-3">Modalidade</legend>
+            <legend className="block text-sm font-medium text-gray-600 mb-3">Modalidade</legend>
             <div className="grid grid-cols-2 sm:grid-cols-6 gap-3">
               {(['imóvel', 'veículo', 'caminhão', 'moto', 'cirurgia', 'viagem'] as Modality[]).map(m => (
-                <button key={m} type="button" onClick={() => setModality(m)} className={`w-full px-4 py-3 text-sm font-semibold rounded-lg transition-all duration-200 ${modality === m ? 'bg-[#A43293] text-white shadow-lg' : 'bg-white text-black hover:bg-gray-50'}`}>
+                <button key={m} type="button" onClick={() => setModality(m)} className={`w-full px-4 py-3 text-sm font-semibold rounded-lg transition-all duration-200 ${modality === m ? 'bg-[#000046] text-white shadow-lg' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}`}>
                   {m.charAt(0).toUpperCase() + m.slice(1)}
                 </button>
               ))}
@@ -115,7 +118,7 @@ const Simulator = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="valorDesejado" className="block text-sm font-medium text-black">Valor Desejado</label>
+              <label htmlFor="valorDesejado" className="block text-sm font-medium text-gray-600">Valor Desejado</label>
               <input
                 type="text"
                 id="valorDesejado"
@@ -123,27 +126,27 @@ const Simulator = () => {
                 onChange={(e) => handleCurrencyChange(e, setDesiredValue)}
                 onKeyDown={(e) => handleCurrencyKeyDown(e, setDesiredValue)}
                 required
-                className="mt-2 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm text-black focus:outline-none focus:ring-2 focus:ring-[#A43293] focus:border-transparent"
+                className="mt-2 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#000046] focus:border-transparent"
               />
             </div>
             <div>
-              <label htmlFor="lance" className="block text-sm font-medium text-black">Lance (Opcional)</label>
+              <label htmlFor="lance" className="block text-sm font-medium text-gray-600">Lance (Opcional)</label>
               <input
                 type="text"
                 id="lance"
                 value={formatToCurrencyBRL(downPayment)}
                 onChange={(e) => handleCurrencyChange(e, setDownPayment)}
                 onKeyDown={(e) => handleCurrencyKeyDown(e, setDownPayment)}
-                className="mt-2 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm text-black focus:outline-none focus:ring-2 focus:ring-[#A43293] focus:border-transparent"
+                className="mt-2 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#000046] focus:border-transparent"
               />
             </div>
           </div>
 
           <fieldset>
-            <legend className="block text-sm font-medium text-black mb-3">Prazo</legend>
+            <legend className="block text-sm font-medium text-gray-600 mb-3">Prazo</legend>
             <div className="flex flex-wrap gap-3">
               {prazoOptions.map(p => (
-                <button key={p} type="button" onClick={() => setTermInMonths(p)} className={`px-5 py-2 text-sm font-semibold rounded-full transition-all duration-200 ${termInMonths === p ? 'bg-[#A43293] text-white shadow-md' : 'bg-white text-black hover:bg-gray-50'}`}>
+                <button key={p} type="button" onClick={() => setTermInMonths(p)} className={`px-5 py-2 text-sm font-semibold rounded-full transition-all duration-200 ${termInMonths === p ? 'bg-[#000046] text-white shadow-md' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}`}>
                   {p} meses
                 </button>
               ))}
@@ -158,23 +161,23 @@ const Simulator = () => {
         </form>
 
         {result && (
-          <div ref={resultsRef} aria-live="polite" className="mt-16 p-8 bg-white rounded-xl shadow-2xl">
+          <div ref={resultsRef} aria-live="polite" className="mt-16 p-8 bg-slate-50 rounded-xl shadow-2xl">
             <h3 className="text-2xl font-bold text-center text-[#000046]">Sua Estimativa Personalizada</h3>
             <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <div className="p-5 bg-[#DFD2CF]/40 rounded-lg text-center">
-                <p className="text-sm font-medium text-black">Faixa de Parcela Mensal</p>
+              <div className="p-5 bg-gray-200 rounded-lg text-center">
+                <p className="text-sm font-medium text-gray-800">Faixa de Parcela Mensal</p>
                 <p className="font-bold text-xl text-[#000046]">{formatCurrency(result.minPayment)} - {formatCurrency(result.maxPayment)}</p>
               </div>
-              <div className="p-5 bg-[#A43293]/10 rounded-lg text-center">
-                <p className="text-sm font-medium text-black">Parcela Sugerida</p>
-                <p className="font-bold text-2xl text-[#A43293]">{formatCurrency(result.monthlyPayment)}</p>
+              <div className="p-5 bg-gray-300 rounded-lg text-center">
+                <p className="text-sm font-medium text-gray-800">Parcela Sugerida</p>
+                <p className="font-bold text-2xl text-[#000046]">{formatCurrency(result.monthlyPayment)}</p>
               </div>
-              <div className="p-5 bg-[#DFD2CF]/40 rounded-lg text-center">
-                <p className="text-sm font-medium text-black">Taxa Anual Estimada</p>
+              <div className="p-5 bg-gray-200 rounded-lg text-center">
+                <p className="text-sm font-medium text-gray-800">Taxa Anual Estimada</p>
                 <p className="font-bold text-xl text-[#000046]">{result.estimatedAnnualRate}%</p>
               </div>
-              <div className="p-5 bg-[#DFD2CF]/40 rounded-lg text-center">
-                <p className="text-sm font-medium text-black">Valor Total Aproximado</p>
+              <div className="p-5 bg-gray-200 rounded-lg text-center">
+                <p className="text-sm font-medium text-gray-800">Valor Total Aproximado</p>
                 <p className="font-bold text-xl text-[#000046]">{formatCurrency(result.totalPaid)}</p>
               </div>
             </div>
