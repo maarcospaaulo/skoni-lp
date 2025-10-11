@@ -81,11 +81,11 @@ const FAQ = () => {
           <div className="flex flex-col justify-center">
             <p className="text-base font-semibold leading-7 text-[#A43293]">FAQ</p>
             <h2 className="mt-2 text-4xl font-bold tracking-tight text-[#000046] sm:text-5xl leading-tight">
-              Perguntas frequentes sobre como funciona o consórcio
+              Perguntas frequentes
             </h2>
             <a
               href="#contact"
-              className="mt-8 inline-block w-auto self-start rounded-full bg-[#C8F466] px-8 py-3 text-center text-lg font-semibold text-[#000046] shadow-sm hover:bg-lime-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-500"
+              className="mt-8 inline-block w-auto self-start rounded-full bg-[#C8F466] px-8 py-3 text-center text-lg font-semibold text-[#000046] shadow-sm hover:bg-lime-400 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-lime-500"
             >
               Fale Conosco
             </a>
