@@ -47,6 +47,7 @@ const Hero = () => {
               height={400}
               priority
               fetchPriority="high"
+              sizes="(max-width: 768px) 100vw, 600px"
               className="mx-auto rounded-lg"
             />
           </div>
