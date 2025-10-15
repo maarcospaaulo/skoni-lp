@@ -4,23 +4,23 @@ import { Calculator, BarChart3, SlidersHorizontal, MessageSquare } from 'lucide-
 const steps = [
   {
     icon: Calculator,
-    title: 'Passo 1: Simule',
-    description: 'Preencha o simulador com o valor do crédito que você precisa e veja as possibilidades na hora.',
+    title: 'Passo 1: Simule Online',
+    description: 'Insira o valor do crédito que você precisa e veja as parcelas em segundos.',
   },
   {
     icon: BarChart3,
     title: 'Passo 2: Analise as Opções',
-    description: 'Veja as opções de parcelas e prazos que se encaixam perfeitamente no seu bolso.',
+    description: 'Compare prazos e valores de parcelas para encontrar o plano que cabe no seu bolso.',
   },
   {
     icon: SlidersHorizontal,
     title: 'Passo 3: Personalize o Plano',
-    description: 'Ajuste os valores de entrada ou prazo para encontrar o plano ideal para sua realidade financeira.',
+    description: 'Ajuste entrada ou prazo e descubra o plano ideal para sua realidade financeira.',
   },
   {
     icon: MessageSquare,
     title: 'Passo 4: Consultoria Grátis',
-    description: 'Gostou da simulação? Fale com nosso time e receba uma assessoria completa para contratar.',
+    description: 'Gostou da simulação? Fale com nosso especialista e receba orientação gratuita para contratar o consórcio.',
   },
 ];
 
@@ -31,10 +31,10 @@ const HowItWorks = () => {
         <div className="mx-auto max-w-2xl lg:text-center">
           <p className="text-base font-semibold leading-7 text-[#C8F466]">Como Funciona</p>
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Como Realizar seu Sonho em 4 Passos
+            Simule Seu Consórcio Online em 4 Passos
           </h2>
           <p className="mt-6 text-lg leading-8 text-gray-300">
-            Nosso processo é simples, transparente e pensado para você. Siga as etapas abaixo e chegue mais perto da sua conquista.
+            Nosso processo é rápido, transparente e pensado para você. Simule seu consórcio e receba consultoria gratuita de especialistas para escolher o plano ideal.
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">

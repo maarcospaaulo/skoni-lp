@@ -123,10 +123,13 @@ const Simulator = () => {
     <section id="simulador" aria-labelledby="simulator-title" className="bg-white py-16 sm:py-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
-          <p className="text-base font-semibold leading-7 text-[#A43293]">Grátis e rápido</p>
+          <p className="text-base font-semibold leading-7 text-[#A43293]">Grátis, rápido e sem cadastro</p>
           <h2 id="simulator-title" className="text-3xl font-extrabold text-[#000046]">
-            Simulador de Consórcio
+            Simule Seu Consórcio Online e Receba Consultoria Gratuita
           </h2>
+          <p className="mt-4 text-lg text-gray-700 sm:text-xl">
+            Descubra o valor das parcelas em segundos e receba orientação de um especialista para escolher o plano ideal.
+          </p>
         </div>
         
         <form onSubmit={handleSubmit} className="mt-12 space-y-8">
@@ -182,7 +185,7 @@ const Simulator = () => {
 
           <div className="text-center pt-6">
             <button type="submit" className="w-full md:w-auto inline-flex items-center justify-center rounded-full bg-[#A43293] px-8 py-3 text-center text-lg font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-lime-500">
-              Calcular Estimativa
+              Simule Agora e Fale com um Especialista
             </button>
           </div>
         </form>

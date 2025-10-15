@@ -51,9 +51,7 @@ const FAQItem = ({ question, answer }: FAQItemProps) => {
         aria-labelledby={questionId}
         className={`grid overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
         <div className="min-h-0">
-          <p className="text-base text-gray-600 pt-4 pr-6">
-            {answer}
-          </p>
+          <p className="text-sm text-gray-600 pt-4 pr-6" dangerouslySetInnerHTML={{ __html: answer }} />
         </div>
       </div>
     </div>

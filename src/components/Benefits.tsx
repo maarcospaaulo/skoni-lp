@@ -14,14 +14,14 @@ const benefits = [
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 text-[#C8F466]"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
     ),
     title: 'Planejamento Flexível',
-    description: 'Escolha valores de crédito e prazos de pagamento que se encaixam perfeitamente no seu orçamento.',
+    description: 'Escolha valores de crédito e prazos que cabem no seu orçamento, simulando consórcio online sem complicação.',
   },
   {
     Icon: () => (
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 text-[#C8F466]"><line x1="19" x2="5" y1="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
     ),
     title: 'Taxas Competitivas',
-    description: 'Nossa taxa de administração é significativamente menor que os juros de financiamentos tradicionais.',
+    description: 'Nossa taxa de administração é menor que juros de financiamentos tradicionais, tornando seu consórcio mais econômico.',
   },
   {
     Icon: () => (
@@ -33,14 +33,14 @@ const benefits = [
       </svg>
     ),
     title: 'Diversas Finalidades',
-    description: 'Use seu crédito para imóveis, veículos, motos, cirurgias plásticas, viagens e muito mais.',
+    description: 'Use seu crédito para imóveis, veículos, motos, cirurgias, viagens e muito mais, com facilidade de simular online.',
   },
   {
     Icon: () => (
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 text-[#C8F466]"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
     ),
     title: 'Transparência Total',
-    description: 'Simule seu consórcio de forma clara, sem taxas escondidas ou surpresas no contrato.',
+    description: 'Simule seu consórcio online de forma clara, sem taxas escondidas ou surpresas no contrato.',
   },
   {
     Icon: () => (
@@ -49,15 +49,15 @@ const benefits = [
         <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
       </svg>
     ),
-    title: 'Meia Parcela',
-    description: 'Pague metade da parcela até a contemplação e alivie seu orçamento mensalmente.',
+    title: 'Parcela Fixa',
+    description: 'Pague o mesmo valor mensalmente, sem surpresas, e planeje seu orçamento com segurança.',
   },
   {
     Icon: () => (
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 text-[#C8F466]"><path d="m12 14 4-4"></path><path d="M3.34 19a10 10 0 1 1 17.32 0"></path></svg>
     ),
     title: 'Contemplação Rápida',
-    description: 'Utilize nossa estratégia para acelerar sua contemplação em até 10x e realize seu sonho mais rápido.',
+    description: 'Utilize nossa estratégia para acelerar a contemplação e realize seu sonho mais rápido.',
   },
 ];
 
@@ -70,10 +70,10 @@ const Benefits = () => {
         <div className="mx-auto max-w-2xl lg:text-center">
           <p className="text-base font-semibold leading-7 text-[#C8F466]">Benefícios</p>
           <h2 id={sectionTitleId} className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            Por que escolher a Skoni?
+            Por que Simular Consórcio Online com a Skoni?
           </h2>
           <p className="mt-6 text-lg leading-8 text-gray-300">
-            Simplificamos o caminho para suas conquistas com um consórcio inteligente, flexível e transparente.
+            Simplificamos o caminho para suas conquistas com consórcios flexíveis, transparentes e orientação gratuita de especialistas.
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">

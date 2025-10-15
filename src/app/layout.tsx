@@ -3,9 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Skoni | Simulador de Consórcio Online e 100% Gratuito",
+  title: "Quer Fazer Consórcio? Simule Online | Skoni",
   description:
-    "Simule seu consórcio de casa, carro, moto, caminhão ou serviços. Na Skoni você descobre o valor das parcelas em segundos e recebe as melhores opções para seu perfil.",
+    "Simule consórcio online sem cadastro e veja as parcelas na hora. Receba consultoria gratuita de um especialista para escolher a melhor opção.",
   keywords: [
     "consórcio",
     "simulador de consórcio",
@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     "consórcio moto",
     "consórcio caminhão",
     "simulador Skoni",
+    "fazer consorcio",
+    "consorcio online"
   ],
   openGraph: {
     title: "Skoni | Simulador de Consórcio Online e 100% Gratuito",

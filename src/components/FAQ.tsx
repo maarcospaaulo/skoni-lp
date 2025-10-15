@@ -11,43 +11,43 @@ interface FAQData {
 const faqData: FAQData[] = [
   {
     question: 'O que é consórcio e como funciona na Skoni?',
-    answer: 'O consórcio é uma forma de comprar imóvel, carro, moto, cirurgia ou viagem sem pagar juros abusivos. Na Skoni, você entra em um grupo, paga parcelas mensais e pode ser contemplado por sorteio ou lance. É planejamento financeiro inteligente para conquistar seu objetivo.',
+    answer: 'O <b>consórcio Skoni</b> é uma forma segura e planejada de adquirir <b>imóveis, veículos, motos, cirurgias estéticas ou viagens</b> sem pagar juros abusivos. Você participa de um grupo, paga <b>parcelas mensais sem entrada</b> e pode ser contemplado por sorteio ou lance, recebendo a <b>carta de crédito</b> para adquirir o bem ou serviço desejado. É a maneira mais inteligente de conquistar seus objetivos com planejamento financeiro.',
   },
   {
     question: 'Preciso dar entrada para participar de um consórcio Skoni?',
-    answer: 'Não é necessário. O consórcio é uma modalidade de compra sem juros e sem entrada.',
+    answer: 'Não é necessário dar entrada. No <b>consórcio Skoni</b>, você paga <b>parcelas mensais reduzidas</b> e sem juros, garantindo aquisição planejada de bens ou serviços de forma acessível e segura.',
   },
   {
     question: 'Posso acelerar a minha contemplação?',
-    answer: 'Caso queira acelerar sua contemplação, você pode ofertar um lance, escolhendo o valor ideal. Dar um lance também reduz as parcelas mensais, mas não é uma exigência.',
+    answer: 'Sim! Você pode oferecer um lance no <b>consórcio Skoni</b> para acelerar a contemplação. Dar um lance aumenta suas chances de receber a <b>carta de crédito</b> mais rápido e pode reduzir o número de parcelas, sem ser uma obrigação.',
   },
   {
     question: 'Quantas pessoas são contempladas por mês?',
-    answer: 'O número de contemplações mensais é um indicador que a Skoni avalia em todos os atendimentos. Nosso foco é escolher o melhor grupo com o maior número possível de contemplações, podendo chegar a mais de 50 contemplados por mês em um único grupo.',
+    answer: 'A Skoni organiza grupos para contemplação mensal, priorizando o maior número possível de participantes. É comum mais de 50 pessoas serem contempladas em um único grupo, garantindo transparência e planejamento financeiro seguro para todos.',
   },
   {
     question: 'O que é alavancagem patrimonial?',
-    answer: 'É uma forma de aumentar seu patrimônio ao mesmo em que recebe um retorno financeiro, por exemplo, depois de contemplar um consórcio imobiliário, você compra um apartamento e coloca para alugar, assim o seu inquilino paga o restante do apartamento para você.',
+    answer: 'Alavancagem patrimonial é a estratégia de aumentar seu patrimônio usando a <b>carta de crédito</b> do consórcio. Por exemplo, ao contemplar um <b>consórcio imobiliário Skoni</b>, você pode comprar um apartamento e alugá-lo, permitindo que o inquilino pague o restante do bem, criando renda passiva e aumentando seu patrimônio.',
   },
   {
     question: 'O que é alavancagem financeira?',
-    answer: 'É quando você recebe um valor bem mais alto do que o valor que você precisou desembolsar, por exemplo, quando você vende uma carta contemplada, pode lucrar até 900% a mais do que pagou naquela carta.',
+    answer: 'Alavancagem financeira ocorre quando você obtém retorno superior ao valor investido. Por exemplo, ao vender uma <b>carta de crédito contemplada</b>, você pode lucrar até 900% sobre o valor pago, transformando o consórcio Skoni em uma oportunidade de crescimento financeiro.',
   },
   {
     question: 'Quais os diferenciais dos consórcios da Skoni?',
-    answer: 'Trabalhamos com cotas sem taxa de adesão, sem fundo de reserva, sem seguro prestamista e sem reajustes anuais. Conseguimos buscar opções em todo o mercado brasileiro, inclusive com parcelas super reduzidas para realizar os seus sonhos o quanto antes!',
+    answer: 'Os <b>consórcios Skoni</b> não possuem taxa de adesão, fundo de reserva ou seguro prestamista, e são sem reajustes anuais. Buscamos as melhores opções no mercado brasileiro, com <b>parcelas reduzidas</b> para realizar seus sonhos mais rapidamente e com total segurança.',
   },
   {
     question: 'Quais são as modalidades de consórcio disponíveis?',
-    answer: 'A Skoni oferece consórcios para imóveis, veículos, motos, cirurgias estéticas e viagens. Tudo em um só lugar, com taxas competitivas e flexibilidade de prazo.',
+    answer: 'A Skoni oferece consórcios para <b>imóveis, veículos, motos, cirurgias estéticas e viagens</b>. Todas as modalidades possuem <b>parcelas flexíveis, sem juros e prazos ajustáveis</b>, permitindo planejamento financeiro eficiente e conquista de objetivos de forma segura.',
   },
   {
     question: 'Como funciona a contemplação no consórcio Skoni?',
-    answer: 'A contemplação acontece quando você é sorteado ou oferece um lance vencedor. Nesse momento, você recebe a carta de crédito para usar na compra do bem ou serviço que deseja.',
+    answer: 'A <b>contemplação no consórcio Skoni</b> acontece quando você é sorteado ou oferece um lance vencedor. Ao ser contemplado, você recebe a <b>carta de crédito</b> para adquirir o bem ou serviço desejado, com total flexibilidade de uso e segurança financeira.',
   },
   {
     question: 'É possível antecipar parcelas ou quitar o consórcio antes do prazo?',
-    answer: 'Sim! Você pode antecipar parcelas, reduzir saldo devedor ou até quitar antes do prazo. Essa flexibilidade ajuda a economizar e conquistar seu bem mais rápido.',
+    answer: 'Sim! No <b>consórcio Skoni</b> você pode antecipar parcelas, reduzir saldo devedor ou quitar o consórcio antes do prazo. Essa flexibilidade permite economizar e conquistar seu bem ou serviço de forma mais rápida e planejada.',
   },
 ];
 
@@ -60,7 +60,7 @@ const FAQ = () => {
           <div className="flex flex-col justify-center">
             <p className="text-base font-semibold leading-7 text-[#A43293]">FAQ</p>
             <h2 className="mt-2 text-4xl font-bold tracking-tight text-[#000046] sm:text-5xl leading-tight">
-              Perguntas frequentes
+              Perguntas Frequentes sobre Consórcio Skoni
             </h2>
             <a
               href="#contact"

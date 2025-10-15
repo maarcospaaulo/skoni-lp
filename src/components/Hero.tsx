@@ -20,10 +20,10 @@ const Hero = () => {
               id="hero-headline"
               className="text-4xl font-extrabold tracking-tight text-[#000046] sm:text-5xl"
             >
-              Realize seus sonhos sem juros. Simule seu consórcio em segundos.
+              Quer Fazer Consórcio? Simule Online e Receba Consultoria Gratuita.
             </h1>
             <p className="mt-4 text-lg text-black sm:text-xl">
-              Casa, carro, viagem ou até cirurgia. Planos flexíveis que cabem no seu bolso.
+              Casa, carro, moto, viagem ou até cirurgia. Planos flexíveis que cabem no seu bolso, com orientação de um especialista sem custo.
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 lg:items-start">
               <Link
@@ -33,7 +33,7 @@ const Hero = () => {
                 Simule Agora
               </Link>
               <p className="text-sm text-black">
-                ✔ 100% online & rápido | ✔ Sem juros | ✔ Confiável
+                ✔ 100% online & rápido | ✔ Sem juros | ✔ Consultoria gratuita
               </p>
             </div>
           </div>

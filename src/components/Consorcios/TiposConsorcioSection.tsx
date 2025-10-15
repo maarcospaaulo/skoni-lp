@@ -3,38 +3,38 @@ import Carousel from './Carousel';
 
 const consortiumTypes = [
   {
-    title: 'Imóvel',
-    description: 'Planeje a compra da sua <b>casa própria</b>, apartamento ou terreno com o consórcio de imóveis. Uma modalidade de <b>crédito sem juros</b> e com parcelas que cabem no seu orçamento. Ideal para quem busca <b>investir em imóveis</b> de forma segura e econômica.',
+    title: 'Consórcio de Imóveis',
+    description: 'Planeje a compra da sua <b>casa própria</b>, apartamento ou terreno com o <b>consórcio de imóveis</b>. Uma forma de <b>investir em imóveis</b> de maneira segura, com <b>parcelas acessíveis</b> e <b>crédito sem juros</b>. Ideal para quem deseja conquistar a casa própria ou ampliar seu patrimônio.',
     imageSrc: '/consorcio-imovel.png',
     link: 'https://wa.me/5511990143199?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20cons%C3%B3rcio%20de%20Im%C3%B3vel.',
   },
   {
-    title: 'Carro',
-    description: 'Compre seu <b>carro novo</b> ou seminovo sem pagar juros abusivos. O consórcio de veículos permite que você escolha o modelo e a marca que desejar, oferecendo <b>planos flexíveis</b> e poder de compra à vista. Acelere a conquista do seu <b>automóvel dos sonhos</b>.',
+    title: 'Consórcio de Carros',
+    description: 'Adquira seu <b>carro novo</b> ou seminovo com o <b>consórcio de veículos</b> sem pagar juros altos. Escolha a marca e modelo desejado, aproveite <b>planos flexíveis</b> e <b>poder de compra à vista</b>. Uma forma inteligente de conquistar o <b>automóvel dos seus sonhos</b>.',
     imageSrc: '/consorcio-carro.png',
     link: 'https://wa.me/5511990143199?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20cons%C3%B3rcio%20de%20Carro.',
   },
   {
-    title: 'Moto',
-    description: 'Sinta a liberdade sobre duas rodas. O <b>consórcio de motos</b> é a maneira mais inteligente de adquirir sua motocicleta, seja para o dia a dia ou para lazer. Conte com <b>parcelas reduzidas</b> e a flexibilidade para escolher sua <b>moto 0km</b> ou seminova.',
+    title: 'Consórcio de Motos',
+    description: 'Garanta sua liberdade sobre duas rodas com o <b>consórcio de motos</b>. Ideal para motocicletas 0km ou seminovas, oferece <b>parcelas reduzidas</b> e <b>flexibilidade de escolha</b>. Uma solução econômica e segura para adquirir sua <b>moto dos sonhos</b>.',
     imageSrc: '/consorcio-moto.png',
     link: 'https://wa.me/5511990143199?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20cons%C3%B3rcio%20de%20Moto.',
   },
   {
-    title: 'Caminhão',
-    description: 'Invista no crescimento do seu negócio com o <b>consórcio de caminhões</b> e veículos pesados. Renove sua frota, adquira seu primeiro caminhão e aumente sua capacidade logística com <b>crédito facilitado</b> e sem juros. A força que seu <b>negócio precisa</b> para decolar.',
+    title: 'Consórcio de Caminhões',
+    description: 'Impulsione o crescimento do seu negócio com o <b>consórcio de caminhões</b> e veículos pesados. Renove sua frota, adquira seu primeiro caminhão e aumente sua logística com <b>crédito facilitado</b> e <b>sem juros</b>. A solução ideal para empresas que buscam expansão segura.',
     imageSrc: '/consorcio-caminhao.png',
     link: 'https://wa.me/5511990143199?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20cons%C3%B3rcio%20de%20Caminh%C3%A3o.',
   },
   {
-    title: 'Cirurgia',
-    description: 'Cuide da sua saúde e bem-estar com o <b>consórcio de serviços</b>. Realize procedimentos estéticos, cirurgias plásticas ou outros <b>cuidados pessoais</b> com planejamento e segurança financeira. Uma forma de <b>investir em você</b> sem comprometer seu orçamento.',
+    title: 'Consórcio de Cirurgia',
+    description: 'Cuide da sua saúde e bem-estar com o <b>consórcio de serviços de saúde</b>. Planeje procedimentos estéticos, cirurgias plásticas ou outros <b>cuidados pessoais</b> com segurança financeira. Uma forma de <b>investir em você</b> sem comprometer seu orçamento.',
     imageSrc: '/consorcio-cirurgia.png',
     link: 'https://wa.me/5511990143199?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20cons%C3%B3rcio%20para%20Cirurgia.',
   },
   {
-    title: 'Viagem',
-    description: 'Realize a <b>viagem dos seus sonhos</b> com o consórcio de serviços. Planeje suas férias, intercâmbio ou aquela aventura especial sem se preocupar com os juros do cartão de crédito. <b>Viajar com planejamento</b> financeiro fica muito mais prazeroso.',
+    title: 'Consórcio de Viagem',
+    description: 'Realize a <b>viagem dos seus sonhos</b> com o <b>consórcio de serviços</b>. Planeje férias, intercâmbio ou aventuras especiais sem se preocupar com juros do cartão. <b>Viajar com planejamento financeiro</b> torna a experiência mais tranquila e prazerosa.',
     imageSrc: '/consorcio-viagem.png',
     link: 'https://wa.me/5511990143199?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20cons%C3%B3rcio%20para%20Viagem.',
   },
@@ -49,7 +49,7 @@ const TiposConsorcioSection = () => {
             Escolha o seu
           </p>
           <h2 className="text-3xl font-extrabold text-[#000046] sm:text-4xl">
-            Tipos de consórcios
+            Tipos de consórcios: imóveis, veículos, serviços e viagens para planejar seu futuro.
           </h2>
         </div>
         <div className="mt-12">

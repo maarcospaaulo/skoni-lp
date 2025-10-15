@@ -73,11 +73,11 @@ const Footer = () => {
           <div>
             <h3 className="text-base font-semibold">Navegação</h3>
             <ul className="mt-4 space-y-3">
-              <FooterLink href="#como-funciona">Como funciona</FooterLink>
-              <FooterLink href="#simulador">Simulador</FooterLink>
-              <FooterLink href="#beneficios">Benefícios</FooterLink>
-              <FooterLink href="#faq">FAQ</FooterLink>
-              <FooterLink href="https://wa.me/5511990143199">Contato</FooterLink>
+              <FooterLink href="#como-funciona">Como funciona o consórcio Skoni</FooterLink>
+              <FooterLink href="#simulador">Simulador de consórcio</FooterLink>
+              <FooterLink href="#beneficios">Benefícios do consórcio</FooterLink>
+              <FooterLink href="#faq">Perguntas frequentes (FAQ)</FooterLink>
+              <FooterLink href="https://wa.me/5511990143199">Contato via WhatsApp</FooterLink>
             </ul>
           </div>
 
