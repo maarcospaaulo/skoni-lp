@@ -4,6 +4,7 @@ import HowItWorks from "@/components/HowItWorks";
 import Simulator from "@/components/Simulator";
 import Benefits from "@/components/Benefits";
 import TiposConsorcioSection from '@/components/Consorcios/TiposConsorcioSection';
+import Metrics from "@/components/Metrics";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 
@@ -16,6 +17,7 @@ export default function Home() {
       <Simulator />
       <Benefits />
       <TiposConsorcioSection />
+      <Metrics />
       <FAQ />
       <Footer />
     </main>
