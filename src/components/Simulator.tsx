@@ -36,7 +36,7 @@ const Simulator = () => {
   const [modality, setModality] = useState<Modality>('imóvel');
   const [desiredValue, setDesiredValue] = useState(modalityConfig['imóvel'].min * 100);
   const [downPayment, setDownPayment] = useState(0);
-  const [termInMonths, setTermInMonths] = useState<number>(modalityConfig['imóvel'].minTerm);
+  const [termInMonths, setTermInMonths] = useState<number>(modalityConfig['imóvel'].maxTerm);
   
   const [result, setResult] = useState<SimulationResult | null>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
@@ -56,7 +56,7 @@ const Simulator = () => {
     setModality(newModality);
     const config = modalityConfig[newModality];
     setDesiredValue(config.min * 100);
-    setTermInMonths(config.minTerm);
+    setTermInMonths(config.maxTerm);
     setResult(null); 
   };
 
@@ -194,18 +194,14 @@ const Simulator = () => {
           <div ref={resultsRef} aria-live="polite" className="mt-16 p-8 bg-slate-50 rounded-xl shadow-2xl">
             <h3 className="text-2xl font-bold text-center text-[#000046]">Sua Estimativa Personalizada</h3>
             <div className="mt-6 flex flex-col items-center">
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 w-full max-w-3xl">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full max-w-3xl">
                 <div className="p-5 bg-gray-200 rounded-lg text-center h-full">
                   <p className="text-sm font-medium text-gray-800">Faixa de Parcela Mensal</p>
                   <p className="font-bold text-xl text-[#000046]">{formatCurrency(result.minPayment)} - {formatCurrency(result.maxPayment)}</p>
                 </div>
-                <div className="p-5 bg-gray-200 rounded-lg text-center h-full">
+                <div className="p-5 bg-gray-200 rounded-lg text-center h-full border-2 border-[#A43293]">
                   <p className="text-sm font-medium text-gray-800">Parcela Sugerida</p>
                   <p className="font-bold text-xl text-[#000046]">{formatCurrency(result.monthlyPayment)}</p>
-                </div>
-                <div className="p-5 bg-gray-300 rounded-lg text-center h-full">
-                  <p className="text-sm font-medium text-gray-800">Meia Parcela</p>
-                  <p className="font-bold text-2xl text-[#000046]">{formatCurrency(result.halfMonthlyPayment)}</p>
                 </div>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5 w-full max-w-md">
