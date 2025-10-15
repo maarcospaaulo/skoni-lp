@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Quer Fazer Consórcio? Simule Online | Skoni",
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
     "consorcio online"
   ],
   openGraph: {
-    title: "Skoni | Simulador de Consórcio Online e 100% Gratuito",
+    title: "Quer Fazer Consórcio? Simule Online | Skoni",
     description:
       "Simule seu consórcio de casa, carro, moto, caminhão ou serviços em segundos com a Skoni.",
     url: "https://www.skoni.com.br",
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Skoni | Simulador de Consórcio Online e 100% Gratuito",
     description:
-      "Faça a simulação do seu consórcio em segundos com a Skoni e veja o valor das parcelas agora.",
+      "Simule consórcio online sem cadastro e veja as parcelas na hora. Receba consultoria gratuita de um especialista para escolher a melhor opção.",
     images: ["https://www.skoni.com.br/banner.png"],
   },
   alternates: {
@@ -191,6 +192,19 @@ export default function RootLayout({
           }}
         />
         {children}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-KV1XGX8P0P"
+        />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-KV1XGX8P0P');
+          `}
+        </Script>
       </body>
     </html>
   );
