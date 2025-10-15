@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     images: [
       {
-        url: "https://www.skoni.com.br/banner.png",
+        url: "/banner.png",
         width: 1200,
         height: 630,
         alt: "Simulador de Consórcio Skoni",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: "Skoni | Simulador de Consórcio Online e 100% Gratuito",
     description:
       "Simule consórcio online sem cadastro e veja as parcelas na hora. Receba consultoria gratuita de um especialista para escolher a melhor opção.",
-    images: ["https://www.skoni.com.br/banner.png"],
+    images: ["/banner.png"],
   },
   alternates: {
     canonical: "https://www.skoni.com.br",
@@ -52,6 +52,9 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "aEIJ0EtWt7UaqA0y9jhq8jbrh5FNuIvOFrfwuGtwXiw",
+  },
+  icons: {
+    icon: "/favicon.png",
   },
 };
 
@@ -91,7 +94,7 @@ export default function RootLayout({
               "@id": "https://www.skoni.com.br/#organization",
               name: "Skoni",
               url: "https://www.skoni.com.br",
-              logo: "https://www.skoni.com.br/logo-skoni.png",
+              logo: "/logo-skoni.png",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "Rua Barão de Cotegipe",
