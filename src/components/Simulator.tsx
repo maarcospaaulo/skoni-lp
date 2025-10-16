@@ -72,7 +72,7 @@ const Simulator = () => {
     setIsNameValid(!error);
   };
 
-  const handleWhatsappChange = (value: string, mask: any) => {
+  const handleWhatsappChange = (value: string, mask: { unmaskedValue: string }) => {
     setWhatsapp(value);
     const unmaskedValue = mask.unmaskedValue;
     const error = validateWhatsapp(unmaskedValue);
@@ -124,33 +124,33 @@ const Simulator = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const leadData = {
-      name,
-      phone: whatsapp,
-      email: '', // No email field for now
-      modality,
-      estimatedValue: desiredValue,
-    };
+  const leadData = {
+    name,
+    phone: whatsapp,
+    email: '', // No email field for now
+    modality,
+    estimatedValue: desiredValue,
+  };
 
-    try {
-      const response = await fetch('/api/lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(leadData),
-      });
+  try {
+    const response = await fetch("https://script.google.com/macros/s/AKfycbydQ4sPoOM8pLp3ZnjKrLL-3KgbXqVmh883iKgqWGVPUGoGZ0x2zEeShu2anPHpUSjM/exec", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(leadData),
+    });
 
-      if (!response.ok) {
-        // Handle error, maybe show a message to the user
-        console.error('Failed to submit lead');
-      }
+    if (!response.ok) {
+      console.error("Failed to submit lead");
+    }
     } catch (error) {
-      console.error('Error submitting lead:', error);
+      console.error("Error submitting lead:", error);
     }
 
     calculateSimulation();
   };
+
 
   // --- Handlers para o Input de Moeda Customizado ---
   const handleCurrencyChange = (e: React.ChangeEvent<HTMLInputElement>, setter: (value: number) => void) => {
