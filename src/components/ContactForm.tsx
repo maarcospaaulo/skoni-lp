@@ -85,7 +85,7 @@ const ContactForm = ({ estimatedValue, initialModality }: ContactFormProps) => {
 
       if (!response.ok) throw new Error('Falha no envio');
       setStatus('success');
-    } catch (error) {
+    } catch (_error) {
       setStatus('error');
     }
   };
