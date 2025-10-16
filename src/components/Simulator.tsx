@@ -126,7 +126,7 @@ const Simulator = () => {
   const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
-  const leadData = { name, phone: whatsapp, modality, estimatedValue: desiredValue };
+  const leadData = { name, phone: whatsapp, modality, estimatedValue: desiredValue, downPayment, termInMonths };
 
   try {
     await fetch('/api/lead', {

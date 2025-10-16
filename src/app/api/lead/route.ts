@@ -2,9 +2,9 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
   try {
-    const { name, phone, modality, estimatedValue } = await request.json();
+    const { name, phone, modality, estimatedValue, downPayment, termInMonths } = await request.json();
 
-    if (!name || !phone || !modality || !estimatedValue) {
+    if (!name || !phone || !modality || !estimatedValue || !downPayment || !termInMonths) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
@@ -12,7 +12,7 @@ export async function POST(request: Request) {
 
     await fetch(scriptURL, {
       method: 'POST',
-      body: JSON.stringify({ name, phone, modality, estimatedValue }),
+      body: JSON.stringify({ name, phone, modality, estimatedValue, downPayment, termInMonths }),
     });
 
     return NextResponse.json({ success: true });
