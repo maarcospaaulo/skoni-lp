@@ -4,15 +4,19 @@ export async function POST(request: Request) {
   try {
     const { name, phone, modality, estimatedValue, downPayment, termInMonths } = await request.json();
 
-    if (!name || !phone || !modality || !estimatedValue || !downPayment || !termInMonths) {
+    if (!name || !phone || !modality || !estimatedValue) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
+
+    const dp = downPayment ?? 0;
+    const term = termInMonths ?? 0;
 
     const scriptURL = 'https://script.google.com/macros/s/AKfycbydQ4sPoOM8pLp3ZnjKrLL-3KgbXqVmh883iKgqWGVPUGoGZ0x2zEeShu2anPHpUSjM/exec';
 
     await fetch(scriptURL, {
       method: 'POST',
-      body: JSON.stringify({ name, phone, modality, estimatedValue, downPayment, termInMonths }),
+      body: JSON.stringify({ name, phone, modality, estimatedValue, downPayment: dp,
+        termInMonths: term }),
     });
 
     return NextResponse.json({ success: true });
