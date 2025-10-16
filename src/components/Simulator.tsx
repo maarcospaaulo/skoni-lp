@@ -169,6 +169,13 @@ const Simulator = () => {
     return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valueInCents / 100);
   };
 
+  const generateWhatsAppLink = () => {
+    const formattedDesiredValue = formatCurrency(desiredValue / 100);
+    const formattedDownPayment = formatCurrency(downPayment / 100);
+    const message = `Olá, Meu nome é ${name}, fiz uma simulação no site e ganhei uma consultoria grátis. Simulei um(a) ${modality}, no valor de ${formattedDesiredValue}, com lance de ${formattedDownPayment} e prazo de ${termInMonths} meses.`;
+    return `https://wa.me/5511990143199?text=${encodeURIComponent(message)}`;
+  };
+
   const currentConfig = modalityConfig[modality];
 
   return (
@@ -300,7 +307,7 @@ const Simulator = () => {
             </div>
             <p className="mt-5 text-xs text-center text-gray-600">* Esta é uma estimativa. Os valores finais podem variar e dependem da análise de crédito e das regras do grupo de consórcio. Consulte o regulamento.</p>
             <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4">
-                <a href="https://wa.me/5511990143199?text=Olá, fiz uma simulação no site e gostaria de falar com um especialista." target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-[#C86236] px-8 py-3 text-center text-base font-medium text-white shadow-sm">
+                <a href={generateWhatsAppLink()} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-[#C86236] px-8 py-3 text-center text-base font-medium text-white shadow-sm">
                     Falar com Especialista
                 </a>
             </div>
