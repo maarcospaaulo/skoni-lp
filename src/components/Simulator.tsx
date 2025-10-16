@@ -126,23 +126,16 @@ const Simulator = () => {
   const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
-  const leadData = {
-    name,
-    phone: whatsapp,
-    modality,
-    estimatedValue: desiredValue,
-  };
+  const leadData = { name, phone: whatsapp, modality, estimatedValue: desiredValue };
 
   try {
-    await fetch(
-      "https://script.google.com/macros/s/AKfycbydQ4sPoOM8pLp3ZnjKrLL-3KgbXqVmh883iKgqWGVPUGoGZ0x2zEeShu2anPHpUSjM/exec",
-      {
-        method: "POST",
-        body: JSON.stringify(leadData),
-      }
-    );
+    await fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(leadData),
+    });
   } catch (error) {
-    console.error("Erro ao enviar:", error);
+    console.error('Error submitting lead:', error);
   }
     calculateSimulation();
   };
