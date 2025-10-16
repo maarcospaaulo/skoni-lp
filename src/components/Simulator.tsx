@@ -1,8 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import Modal from '@/components/Modal';
-import ContactForm from '@/components/ContactForm';
+import { IMaskInput } from 'react-imask';
 
 // --- Tipos e Constantes ---
 type Modality = 'imóvel' | 'carro' | 'caminhão' | 'moto' | 'cirurgia' | 'viagem';
@@ -37,20 +36,49 @@ const Simulator = () => {
   const [desiredValue, setDesiredValue] = useState(modalityConfig['imóvel'].min * 100);
   const [downPayment, setDownPayment] = useState(0);
   const [termInMonths, setTermInMonths] = useState<number>(modalityConfig['imóvel'].maxTerm);
+  const [name, setName] = useState('');
+  const [whatsapp, setWhatsapp] = useState('');
+  const [isNameValid, setIsNameValid] = useState(false);
+  const [isWhatsappValid, setIsWhatsappValid] = useState(false);
+  const [errors, setErrors] = useState({ name: '', whatsapp: '' });
   
   const [result, setResult] = useState<SimulationResult | null>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
-
-  // --- Estados do Modal ---
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
 
   useEffect(() => {
     if (result) {
       resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }, [result]);
+
+  const validateName = (name: string) => {
+    if (!name) return 'Nome é obrigatório.';
+    const nameRegex = /^[a-zA-Z\s]*$/;
+    if (!nameRegex.test(name)) return 'Nome inválido.';
+    return '';
+  };
+
+  const validateWhatsapp = (unmaskedValue: string) => {
+    if (unmaskedValue.length === 0) return 'WhatsApp é obrigatório.';
+    if (unmaskedValue.length < 10) return 'WhatsApp inválido.';
+    return '';
+  };
+
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newName = e.target.value;
+    setName(newName);
+    const error = validateName(newName);
+    setErrors(errors => ({...errors, name: error}));
+    setIsNameValid(!error);
+  };
+
+  const handleWhatsappChange = (value: string, mask: any) => {
+    setWhatsapp(value);
+    const unmaskedValue = mask.unmaskedValue;
+    const error = validateWhatsapp(unmaskedValue);
+    setErrors(errors => ({...errors, whatsapp: error}));
+    setIsWhatsappValid(!error);
+  };
 
   const handleModalityChange = (newModality: Modality) => {
     setModality(newModality);
@@ -95,8 +123,32 @@ const Simulator = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const leadData = {
+      name,
+      phone: whatsapp,
+      email: '', // No email field for now
+      modality,
+      estimatedValue: desiredValue,
+    };
+
+    try {
+      const response = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(leadData),
+      });
+
+      if (!response.ok) {
+        // Handle error, maybe show a message to the user
+        console.error('Failed to submit lead');
+      }
+    } catch (error) {
+      console.error('Error submitting lead:', error);
+    }
+
     calculateSimulation();
   };
 
@@ -183,9 +235,40 @@ const Simulator = () => {
              <p className="text-xs text-gray-500 mt-1">Mín: {currentConfig.minTerm} meses, Máx: {currentConfig.maxTerm} meses</p>
           </fieldset>
 
-          <div className="text-center pt-6">
-            <button type="submit" className="w-full md:w-auto inline-flex items-center justify-center rounded-full bg-[#A43293] px-8 py-3 text-center text-lg font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-lime-500">
-              Simule Agora e Fale com um Especialista
+          <div className="grid grid-cols-2 gap-6">
+            <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-600">Nome</label>
+                <input
+                type="text"
+                id="name"
+                value={name}
+                onChange={handleNameChange}
+                required
+                className={`mt-2 block w-full px-4 py-3 bg-white border ${errors.name ? 'border-orange-500' : 'border-gray-300'} rounded-lg shadow-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#000046] focus:border-transparent`}
+                />
+                {errors.name && <p className="text-xs text-orange-500 mt-1">{errors.name}</p>}
+            </div>
+            <div>
+                <label htmlFor="whatsapp" className="block text-sm font-medium text-gray-600">WhatsApp</label>
+                <IMaskInput
+                  mask="(00) 00000-0000"
+                  value={whatsapp}
+                  onAccept={handleWhatsappChange}
+                  placeholder="(00) 00000-0000"
+                  id="whatsapp"
+                  required
+                  className={`mt-2 block w-full px-4 py-3 bg-white border ${errors.whatsapp ? 'border-orange-500' : 'border-gray-300'} rounded-lg shadow-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#000046] focus:border-transparent`}
+                />
+                {errors.whatsapp && <p className="text-xs text-orange-500 mt-1">{errors.whatsapp}</p>}
+            </div>
+          </div>
+          <p className="text-xs text-gray-500 mt-1">Preencha <b>Nome</b> e <b>WhatsApp</b> para simular.</p>
+          <div className="text-center">
+            <button 
+              type="submit" 
+              disabled={!isNameValid || !isWhatsappValid}
+              className="w-full md:w-auto inline-flex items-center justify-center rounded-full bg-[#A43293] px-8 py-3 text-center text-lg font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-lime-500 disabled:bg-gray-400 disabled:cursor-not-allowed">
+              Preencha e Simule Grátis
             </button>
           </div>
         </form>
@@ -220,20 +303,10 @@ const Simulator = () => {
                 <a href="https://wa.me/5511990143199?text=Olá, fiz uma simulação no site e gostaria de falar com um especialista." target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-[#C86236] px-8 py-3 text-center text-base font-medium text-white shadow-sm">
                     Falar com Especialista
                 </a>
-                <button onClick={openModal} className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-[#A43293] hover:bg-[#8e2b7f] transition-all duration-300 transform hover:scale-105">
-                    Quero ser Contatado
-                </button>
             </div>
           </div>
         )}
       </div>
-
-      <Modal isOpen={isModalOpen} onClose={closeModal} title="Receba uma proposta">
-        <ContactForm 
-          estimatedValue={desiredValue / 100}
-          initialModality={modality}
-        />
-      </Modal>
     </section>
   );
 };
