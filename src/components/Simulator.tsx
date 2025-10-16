@@ -129,25 +129,21 @@ const Simulator = () => {
   const leadData = {
     name,
     phone: whatsapp,
-    email: '', // No email field for now
     modality,
     estimatedValue: desiredValue,
   };
 
   try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbydQ4sPoOM8pLp3ZnjKrLL-3KgbXqVmh883iKgqWGVPUGoGZ0x2zEeShu2anPHpUSjM/exec", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(leadData),
-    });
-
-    if (!response.ok) {
-      console.error("Failed to submit lead");
-    }
-    } catch (error) {
-      console.error("Error submitting lead:", error);
-    }
-
+    await fetch(
+      "https://script.google.com/macros/s/AKfycbydQ4sPoOM8pLp3ZnjKrLL-3KgbXqVmh883iKgqWGVPUGoGZ0x2zEeShu2anPHpUSjM/exec",
+      {
+        method: "POST",
+        body: JSON.stringify(leadData),
+      }
+    );
+  } catch (error) {
+    console.error("Erro ao enviar:", error);
+  }
     calculateSimulation();
   };
 
