@@ -45,6 +45,7 @@ const Hero = () => {
               alt="Ilustração de um sonho sendo realizado através do consórcio"
               width={600}
               height={400}
+              quality={80}
               priority
               fetchPriority="high"
               sizes="(max-width: 768px) 100vw, 600px"
