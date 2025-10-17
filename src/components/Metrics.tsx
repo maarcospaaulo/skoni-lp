@@ -9,9 +9,9 @@ interface Metric {
 }
 
 const metrics: Metric[] = [
-  { value: 680, label: 'Clientes prontos para conquistar seu consórcio.', suffix: '' },
-  { value: 7, label: 'Milhões em cartas de crédito entregues.', suffix: 'MI' },
-  { value: 235, label: 'Contemplações realizadas logo no primeiro ano.', suffix: '' },
+  { value: 710, label: 'Clientes prontos para conquistar seu consórcio.', suffix: '' },
+  { value: 15, label: 'Milhões em cartas de crédito entregues.', suffix: 'MI' },
+  { value: 200, label: 'Contemplações realizadas logo no primeiro ano.', suffix: '' },
   { value: 350, label: 'Clientes que já conquistaram casa, carro ou serviço.', suffix: '' },
 ];
 
