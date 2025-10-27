@@ -63,7 +63,7 @@ const FAQ = () => {
               Perguntas Frequentes sobre Consórcio Skoni
             </h2>
             <a
-              href="#contact"
+              href="https://wa.me/5511990143199" target="_blank" rel="noopener noreferrer"
               className="mt-8 inline-block w-auto self-start rounded-full bg-[#C8F466] px-8 py-3 text-center text-lg font-semibold text-[#000046] shadow-sm hover:bg-[#C86236] hover:text-white focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-lime-500 transition-colors duration-300"
             >
               Fale Conosco

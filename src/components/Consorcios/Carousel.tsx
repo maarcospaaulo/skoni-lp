@@ -76,7 +76,7 @@ const Carousel = ({ items }: CarouselProps) => {
       {/* Carousel Container */}
       <div
         ref={scrollContainerRef}
-        className="flex space-x-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-6 -mb-6 scrollbar-hide"
+        className="flex space-x-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-6 pt-6 scrollbar-hide"
       >
         {items.map((item, index) => (
           <div key={index} className="snap-start last:snap-end shrink-0 w-11/12 sm:w-1/2 md:w-1/3 lg:w-1/4">

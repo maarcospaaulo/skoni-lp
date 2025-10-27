@@ -39,7 +39,7 @@ const FAQItem = ({ question, answer }: FAQItemProps) => {
           aria-expanded={isOpen}
           aria-controls={answerId}
           id={questionId}
-          className="flex w-full items-center justify-between text-left text-lg font-medium text-[#000046] focus:outline-none"
+          className="flex w-full items-center justify-between text-left text-lg font-medium text-[#000046] focus:outline-none cursor-pointer"
         >
           <span className="flex-1 pr-4">{question}</span>
           <AccordionIcon isOpen={isOpen} />

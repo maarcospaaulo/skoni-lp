@@ -22,7 +22,7 @@ const FlipCard = ({ imageSrc, title, description, link }: FlipCardProps) => {
 
   return (
     <div
-      className="group w-full h-[26rem] perspective-1000"
+      className="group w-full h-[26rem] perspective-1000 cursor-pointer transition-transform duration-300 hover:scale-105"
       onClick={handleFlip}
     >
       <div

@@ -41,6 +41,7 @@ const Simulator = () => {
   const [isNameValid, setIsNameValid] = useState(false);
   const [isWhatsappValid, setIsWhatsappValid] = useState(false);
   const [errors, setErrors] = useState({ name: '', whatsapp: '' });
+  const [isLoading, setIsLoading] = useState(false);
   
   const [result, setResult] = useState<SimulationResult | null>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
@@ -124,20 +125,27 @@ const Simulator = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+    e.preventDefault();
+    setIsLoading(true);
+    setResult(null);
 
-  const leadData = { name, phone: whatsapp, modality, estimatedValue: desiredValue, downPayment, termInMonths };
+    const leadData = { name, phone: whatsapp, modality, estimatedValue: desiredValue, downPayment, termInMonths };
 
-  try {
-    await fetch('/api/lead', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(leadData),
-    });
-  } catch (error) {
-    console.error('Error submitting lead:', error);
-  }
-    calculateSimulation();
+    try {
+      await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(leadData),
+      });
+    } catch (error) {
+      console.error('Error submitting lead:', error);
+    }
+
+    // Simulate a small delay for better UX, as calculation is fast
+    setTimeout(() => {
+      calculateSimulation();
+      setIsLoading(false);
+    }, 800);
   };
 
 
@@ -185,7 +193,7 @@ const Simulator = () => {
             <legend className="block text-sm font-medium text-gray-600 mb-3">Modalidade</legend>
             <div className="grid grid-cols-2 sm:grid-cols-6 gap-3">
               {(Object.keys(modalityConfig) as Modality[]).map(m => (
-                <button key={m} type="button" onClick={() => handleModalityChange(m)} className={`w-full px-4 py-3 text-sm font-semibold rounded-full transition-all duration-200 ${modality === m ? 'bg-[#A43293] text-white shadow-lg' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}`}>
+                <button key={m} type="button" onClick={() => handleModalityChange(m)} className={`w-full px-4 py-3 text-sm font-semibold rounded-full transition-all duration-200 cursor-pointer ${modality === m ? 'bg-[#A43293] text-white shadow-lg' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}`}>
                   {m.charAt(0).toUpperCase() + m.slice(1)}
                 </button>
               ))}
@@ -223,7 +231,7 @@ const Simulator = () => {
             <legend className="block text-sm font-medium text-gray-600 mb-3">Prazo</legend>
             <div className="flex flex-wrap gap-3">
               {currentConfig.termOptions.map(p => (
-                <button key={p} type="button" onClick={() => setTermInMonths(p)} className={`px-5 py-2 text-sm font-semibold rounded-full transition-all duration-200 ${termInMonths === p ? 'bg-[#000046] text-white shadow-md' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}`}>
+                <button key={p} type="button" onClick={() => setTermInMonths(p)} className={`px-5 py-2 text-sm font-semibold rounded-full transition-all duration-200 cursor-pointer ${termInMonths === p ? 'bg-[#000046] text-white shadow-md' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}`}>
                   {p} meses
                 </button>
               ))}
@@ -260,16 +268,23 @@ const Simulator = () => {
           </div>
           <p className="text-xs text-gray-500 mt-1">Preencha <b>Nome</b> e <b>WhatsApp</b> para simular.</p>
           <div className="text-center">
-            <button 
-              type="submit" 
-              disabled={!isNameValid || !isWhatsappValid}
-              className="w-full md:w-auto inline-flex items-center justify-center rounded-full bg-[#A43293] px-8 py-3 text-center text-lg font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-lime-500 disabled:bg-gray-400 disabled:cursor-not-allowed">
-              Preencha e Simule Grátis
+            <button
+              type="submit"
+              disabled={!isNameValid || !isWhatsappValid || isLoading}
+              className="w-full md:w-auto inline-flex items-center justify-center rounded-full bg-[#A43293] px-8 py-3 text-center text-lg font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-lime-500 disabled:bg-gray-400 disabled:cursor-not-allowed cursor-pointer"
+            >
+              {isLoading ? 'Simulando...' : 'Preencha e Simule Grátis'}
             </button>
           </div>
         </form>
 
-        {result && (
+        {isLoading && (
+          <div className="text-center mt-16">
+            <p className="text-lg text-gray-700 animate-pulse">Aguarde, estamos preparando sua simulação...</p>
+          </div>
+        )}
+
+        {result && !isLoading && (
           <div ref={resultsRef} aria-live="polite" className="mt-16 p-8 bg-slate-50 rounded-xl shadow-2xl">
             <h3 className="text-2xl font-bold text-center text-[#000046]">Sua Estimativa Personalizada</h3>
             <div className="mt-6 flex flex-col items-center">
@@ -296,7 +311,7 @@ const Simulator = () => {
             </div>
             <p className="mt-5 text-xs text-center text-gray-600">* Esta é uma estimativa. Os valores finais podem variar e dependem da análise de crédito e das regras do grupo de consórcio. Consulte o regulamento.</p>
             <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4">
-                <a href={generateWhatsAppLink()} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-[#C86236] px-8 py-3 text-center text-base font-medium text-white shadow-sm">
+                <a href={generateWhatsAppLink()} target="_blank" rel="noopener noreferrer" className="transform transition-all duration-300 hover:scale-105 w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-[#C86236] px-8 py-3 text-center text-base font-medium text-white shadow-sm cursor-pointer">
                     Falar com Especialista
                 </a>
             </div>

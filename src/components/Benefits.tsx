@@ -82,7 +82,7 @@ const Benefits = () => {
               <div
                 key={benefit.title}
                 tabIndex={0}
-                className="flex flex-col p-6 bg-transparent rounded-2xl border border-[#C8F466]/30 transition-all duration-300 hover:border-[#C8F466] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#C8F466]/50"
+                className="transform flex flex-col p-6 bg-transparent rounded-2xl border border-[#C8F466]/30 transition-all duration-300 hover:scale-105 hover:border-[#C8F466] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#C8F466]/50"
               >
                 <div className="flex items-center gap-4">
                   <IconPlaceholder title={benefit.title}>
