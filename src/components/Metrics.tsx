@@ -77,7 +77,7 @@ const MetricCard = ({ metric }: { metric: Metric }) => {
       className="transform flex flex-col items-center justify-center p-6 bg-transparent rounded-2xl border border-[#C8F466]/30 text-center transition-all duration-300 hover:scale-105"
       aria-label={`${metric.value}${metric.suffix} ${metric.label}`}
     >
-      <div className="flex items-center justify-center text-5xl font-bold text-[#C8F466] mt-2">
+      <div className="flex items-center justify-center text-4xl sm:text-5xl font-bold text-[#C8F466] mt-2">
         <Plus size={32} className="mr-2" />
         {count}
         {metric.suffix}
