@@ -61,7 +61,7 @@ const CTA = () => {
       console.error('Error submitting lead:', error);
     }
 
-    window.location.href = generateWhatsAppLink();
+    window.open(generateWhatsAppLink(), '_blank');
     setIsLoading(false);
   };
 

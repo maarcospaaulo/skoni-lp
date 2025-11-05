@@ -36,11 +36,6 @@ const Simulator = () => {
   const [desiredValue, setDesiredValue] = useState(modalityConfig['imóvel'].min * 100);
   const [downPayment, setDownPayment] = useState(0);
   const [termInMonths, setTermInMonths] = useState<number>(modalityConfig['imóvel'].maxTerm);
-  const [name, setName] = useState('');
-  const [whatsapp, setWhatsapp] = useState('');
-  const [isNameValid, setIsNameValid] = useState(false);
-  const [isWhatsappValid, setIsWhatsappValid] = useState(false);
-  const [errors, setErrors] = useState({ name: '', whatsapp: '' });
   const [isLoading, setIsLoading] = useState(false);
   
   const [result, setResult] = useState<SimulationResult | null>(null);
@@ -52,34 +47,10 @@ const Simulator = () => {
     }
   }, [result]);
 
-  const validateName = (name: string) => {
-    if (!name) return 'Nome é obrigatório.';
-    const nameRegex = /^[a-zA-Z\s]*$/;
-    if (!nameRegex.test(name)) return 'Nome inválido.';
-    return '';
-  };
 
-  const validateWhatsapp = (unmaskedValue: string) => {
-    if (unmaskedValue.length === 0) return 'WhatsApp é obrigatório.';
-    if (unmaskedValue.length < 10) return 'WhatsApp inválido.';
-    return '';
-  };
 
-  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newName = e.target.value;
-    setName(newName);
-    const error = validateName(newName);
-    setErrors(errors => ({...errors, name: error}));
-    setIsNameValid(!error);
-  };
 
-  const handleWhatsappChange = (value: string, mask: { unmaskedValue: string }) => {
-    setWhatsapp(value);
-    const unmaskedValue = mask.unmaskedValue;
-    const error = validateWhatsapp(unmaskedValue);
-    setErrors(errors => ({...errors, whatsapp: error}));
-    setIsWhatsappValid(!error);
-  };
+
 
   const handleModalityChange = (newModality: Modality) => {
     setModality(newModality);
@@ -129,18 +100,6 @@ const Simulator = () => {
     setIsLoading(true);
     setResult(null);
 
-    const leadData = { name, phone: whatsapp, modality, estimatedValue: desiredValue, downPayment, termInMonths };
-
-    try {
-      await fetch('/api/lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(leadData),
-      });
-    } catch (error) {
-      console.error('Error submitting lead:', error);
-    }
-
     // Simulate a small delay for better UX, as calculation is fast
     setTimeout(() => {
       calculateSimulation();
@@ -169,7 +128,7 @@ const Simulator = () => {
   const generateWhatsAppLink = () => {
     const formattedDesiredValue = formatCurrency(desiredValue / 100);
     const formattedDownPayment = formatCurrency(downPayment / 100);
-    const message = `Olá, Meu nome é ${name}, fiz uma simulação no site e ganhei uma consultoria grátis. Simulei um(a) ${modality}, no valor de ${formattedDesiredValue}, com lance de ${formattedDownPayment} e prazo de ${termInMonths} meses.`;
+    const message = `Olá, fiz uma simulação no site e ganhei uma consultoria grátis. Simulei um(a) ${modality}, no valor de ${formattedDesiredValue}, com lance de ${formattedDownPayment} e prazo de ${termInMonths} meses.`;
     return `https://wa.me/5511990143199?text=${encodeURIComponent(message)}`;
   };
 
@@ -239,41 +198,14 @@ const Simulator = () => {
              <p className="text-xs text-gray-500 mt-1">Mín: {currentConfig.minTerm} meses, Máx: {currentConfig.maxTerm} meses</p>
           </fieldset>
 
-          <div className="grid grid-cols-2 gap-6">
-            <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-600">Nome</label>
-                <input
-                type="text"
-                id="name"
-                value={name}
-                onChange={handleNameChange}
-                required
-                className={`mt-2 block w-full px-4 py-3 bg-white border ${errors.name ? 'border-orange-500' : 'border-gray-300'} rounded-lg shadow-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#000046] focus:border-transparent`}
-                />
-                {errors.name && <p className="text-xs text-orange-500 mt-1">{errors.name}</p>}
-            </div>
-            <div>
-                <label htmlFor="whatsapp" className="block text-sm font-medium text-gray-600">WhatsApp</label>
-                <IMaskInput
-                  mask="(00) 00000-0000"
-                  value={whatsapp}
-                  onAccept={handleWhatsappChange}
-                  placeholder="(00) 00000-0000"
-                  id="whatsapp"
-                  required
-                  className={`mt-2 block w-full px-4 py-3 bg-white border ${errors.whatsapp ? 'border-orange-500' : 'border-gray-300'} rounded-lg shadow-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#000046] focus:border-transparent`}
-                />
-                {errors.whatsapp && <p className="text-xs text-orange-500 mt-1">{errors.whatsapp}</p>}
-            </div>
-          </div>
-          <p className="text-xs text-gray-500 mt-1">Preencha <b>Nome</b> e <b>WhatsApp</b> para simular.</p>
+
           <div className="text-center">
             <button
               type="submit"
-              disabled={!isNameValid || !isWhatsappValid || isLoading}
+              disabled={isLoading}
               className="w-full md:w-auto inline-flex items-center justify-center rounded-full bg-[#A43293] px-8 py-3 text-center text-lg font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-lime-500 disabled:bg-gray-400 disabled:cursor-not-allowed cursor-pointer"
             >
-              {isLoading ? 'Simulando...' : 'Preencha e Simule Grátis'}
+              {isLoading ? 'Simulando...' : 'Calcular Parcelas'}
             </button>
           </div>
         </form>
