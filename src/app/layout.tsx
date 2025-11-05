@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
-import WhatsAppButton from "@/components/WhatsAppButton";
+//import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
   title: "Quer Fazer Consórcio? Simule Online | Skoni",
@@ -199,7 +199,7 @@ export default function RootLayout({
           }}
         />
         {children}
-        <WhatsAppButton />
+        {/* <WhatsAppButton /> */}
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-KV1XGX8P0P"
