@@ -20,7 +20,7 @@ const Hero = () => {
               id="hero-headline"
               className="text-4xl font-extrabold tracking-tight text-[#000046] sm:text-5xl"
             >
-              Quer Fazer Consórcio? Simule Online e Receba Consultoria Gratuita.
+              Simule em segundos! Receba Consultoria Grátis.
             </h1>
             <p className="mt-4 text-lg text-black sm:text-xl">
               Casa, carro, moto, viagem ou até cirurgia. Planos flexíveis que cabem no seu bolso, com orientação de um especialista sem custo.

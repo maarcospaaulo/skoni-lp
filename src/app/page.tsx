@@ -6,6 +6,7 @@ import Benefits from "@/components/Benefits";
 import TiposConsorcioSection from '@/components/Consorcios/TiposConsorcioSection';
 import Metrics from "@/components/Metrics";
 import FAQ from "@/components/FAQ";
+import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <TiposConsorcioSection />
       <Metrics />
       <FAQ />
+      <CTA />
       <Footer />
     </main>
   );

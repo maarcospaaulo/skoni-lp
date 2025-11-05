@@ -53,7 +53,7 @@ const faqData: FAQData[] = [
 
 const FAQ = () => {
   return (
-    <section id="faq" className="bg-white py-20 sm:py-28">
+    <section id="faq" className="bg-white pt-20 sm:pt-28 pb-12">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-2 lg:gap-16">
           {/* Coluna da Esquerda: Título e CTA */}
