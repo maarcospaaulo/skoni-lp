@@ -140,7 +140,7 @@ const Simulator = () => {
         <div className="mx-auto max-w-2xl lg:text-center">
           <p className="text-base font-semibold leading-7 text-[#A43293]">Grátis, rápido e sem cadastro</p>
           <h2 id="simulator-title" className="text-3xl font-extrabold text-[#000046]">
-            Simule Seu Consórcio Online e Receba Consultoria Gratuita
+            Simulação simples e rápida. Sem cadastro, sem compromisso.
           </h2>
           <p className="mt-4 text-lg text-gray-700 sm:text-xl">
             Descubra o valor das parcelas em segundos e receba orientação de um especialista para escolher o plano ideal.
