@@ -7,7 +7,7 @@ const AlavancagemPatrimonialPage = () => {
   return (
     <div className="bg-gray-900 text-white font-montserrat">
       {/* Seção 1: Hero */}
-      <section className="full-width bg-gray-900 pt-8 pb-10">
+      <section className="full-width bg-gray-900 py-10">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div className="md:block relative min-h-[300px] lg:min-h-[500px] xl:min-h-[600px]">
