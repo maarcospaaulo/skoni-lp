@@ -10,7 +10,7 @@ const AlavancagemPatrimonialPage = () => {
       <section className="full-width bg-gray-900 pt-2 pb-10">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div className="md:block relative">
+            <div className="md:block relative min-h-[300px] lg:min-h-[500px] xl:min-h-[600px]">
               <Image 
                 src="/hero.jpeg" 
                 alt="Hero Image" 

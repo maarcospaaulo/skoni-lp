@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     "fazer consorcio",
     "consorcio online"
   ],
+  metadataBase: new URL("https://www.skoni.com.br"),
   openGraph: {
     title: "Quer Fazer Consórcio? Simule Online | Skoni",
     description:
