@@ -53,28 +53,28 @@ const AlavancagemPatrimonialPage = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
             <div className="flex items-start">
-            <CircleCheck className="h-10 w-10 mr-4 text-amber-400" />
+            <CircleCheck className="min-h-7 min-w-7 mr-4 text-amber-400" />
               <div>
                 <h3 className="font-semibold text-xl">Estratégias de investimento comprovadas</h3>
                 <p className="text-gray-300">Acesse métodos validados para construir e escalar sua renda passiva.</p>
               </div>
             </div>
             <div className="flex items-start">
-              <CircleCheck className="h-10 w-10 mr-4 text-amber-400" />
+              <CircleCheck className="min-h-7 min-w-7 mr-4 text-amber-400" />
               <div>
                 <h3 className="font-semibold text-xl">Análises de mercado semanais</h3>
                 <p className="text-gray-300">Receba insights sobre as melhores oportunidades de investimento da semana.</p>
               </div>
             </div>
             <div className="flex items-start">
-              <CircleCheck className="h-10 w-10 mr-4 text-amber-400" />
+              <CircleCheck className="min-h-7 min-w-7 mr-4 text-amber-400" />
               <div>
                 <h3 className="font-semibold text-xl">Sessões de tira-dúvidas ao vivo</h3>
                 <p className="text-gray-300">Participe de sessões exclusivas com especialistas para esclarecer suas dúvidas.</p>
               </div>
             </div>
             <div className="flex items-start">
-              <CircleCheck className="h-10 w-10 mr-4 text-amber-400" />
+              <CircleCheck className="min-h-7 min-w-7 mr-4 text-amber-400" />
               <div>
                 <h3 className="font-semibold text-xl">Networking com outros investidores</h3>
                 <p className="text-gray-300">Conecte-se com pessoas que compartilham os mesmos objetivos financeiros que você.</p>
