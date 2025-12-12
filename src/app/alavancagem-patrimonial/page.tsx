@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { CircleCheck } from 'lucide-react';
 
 const AlavancagemPatrimonialPage = () => {
@@ -10,7 +11,14 @@ const AlavancagemPatrimonialPage = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div className="md:block relative">
-              <img src="/hero.jpeg" alt="Hero Image" className="w-full h-auto rounded-lg" />
+              <Image 
+                src="/hero.jpeg" 
+                alt="Hero Image" 
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                style={{objectFit: "cover"}} 
+                className="rounded-lg"
+              />
               <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-gray-900 to-transparent"></div>
               <div className="absolute inset-x-0 top-0 h-1/6 bg-gradient-to-b from-gray-900 to-transparent"></div>
               <div className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-gray-900 to-transparent"></div>

@@ -238,6 +238,7 @@ export default function RootLayout({
         </Script>
         {/* Facebook Pixel - NoScript fallback */}
         <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text */}
           <img
             height="1"
             width="1"

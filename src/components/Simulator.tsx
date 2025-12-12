@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { IMaskInput } from 'react-imask';
 
 // --- Tipos e Constantes ---
 type Modality = 'imóvel' | 'carro' | 'caminhão' | 'moto' | 'cirurgia' | 'viagem';
