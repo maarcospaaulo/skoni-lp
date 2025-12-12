@@ -18,15 +18,17 @@ const AlavancagemPatrimonialPage = () => {
             </div>
             <div className="text-center">
               <h1 className="text-4xl md:text-6xl font-bold mb-4">
-                Aprenda a Gerar Renda Passiva e Transforme sua Vida Financeira
+                Aprenda a Gerar <span className="block text-gradient-amber">Renda Passiva</span> e Transforme sua Vida Financeira
               </h1>
               <p className="text-lg md:text-xl mb-6">
                 Junte-se à nossa comunidade exclusiva no WhatsApp e tenha acesso a estratégias, dicas diárias e suporte de especialistas.
               </p>
-              <div className="mt-12 text-center">
-                <button className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 text-gray-900 hover:from-amber-500 hover:via-amber-600 hover:to-amber-700 font-bold py-4 px-8 text-lg rounded-lg">
-                Entrar no Grupo VIP Agora
-                </button>
+              <div className="mt-6 text-center relative">
+                <div className="rotating-border-button-wrapper inline-block">
+                  <button className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 text-gray-900 hover:from-amber-500 hover:via-amber-600 hover:to-amber-700 font-bold py-4 px-8 text-lg rounded-lg z-10">
+                  Entrar no Grupo VIP Agora
+                  </button>
+                </div>
               </div>
               
               <p className="text-sm mt-4 text-center">Vagas limitadas!</p>
@@ -83,7 +85,7 @@ const AlavancagemPatrimonialPage = () => {
       <section className="full-width bg-gray-900 py-10">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">
-            Sua jornada para a renda passiva começa aqui. Vagas limitadas!
+            Sua jornada para a renda passiva começa aqui.<span className="block">Vagas limitadas!</span>
           </h2>
           <button className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 text-gray-900 hover:from-amber-500 hover:via-amber-600 hover:to-amber-700 font-bold py-4 px-10 rounded-lg text-xl">
             Garantir minha vaga no grupo
