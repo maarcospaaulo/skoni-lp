@@ -1,5 +1,43 @@
 import Image from 'next/image';
 import { CircleCheck } from 'lucide-react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Renda Passiva com Alavancagem Patrimonial - Grupo VIP WhatsApp",
+  description:
+    "Aprenda a gerar renda passiva através de alavancagem patrimonial. Junte-se ao nosso grupo VIP no WhatsApp e transforme sua vida financeira com estratégias exclusivas e suporte especializado.",
+  metadataBase: new URL("https://www.skoni.com.br"),
+  openGraph: {
+    title: "Renda Passiva com Alavancagem Patrimonial - Grupo VIP WhatsApp",
+    description:
+      "Aprenda a gerar renda passiva através de alavancagem patrimonial. Junte-se ao nosso grupo VIP no WhatsApp e transforme sua vida financeira com estratégias exclusivas e suporte especializado.",
+    url: "https://www.skoni.com.br/alavancagem-patrimonial",
+    siteName: "Skoni",
+    type: "website",
+    locale: "pt_BR",
+    images: [
+      {
+        url: "/banner.png",
+        width: 1200,
+        height: 630,
+        alt: "Alavancagem Patrimonial",
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://www.skoni.com.br/alavancagem-patrimonial",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  verification: {
+    google: "aEIJ0EtWt7UaqA0y9jhq8jbrh5FNuIvOFrfwuGtwXiw",
+  },
+  icons: {
+    icon: "/favicon.png",
+  },
+};  
 
 const AlavancagemPatrimonialPage = () => {
 
