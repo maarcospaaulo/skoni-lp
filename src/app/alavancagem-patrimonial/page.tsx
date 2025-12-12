@@ -4,7 +4,7 @@ const AlavancagemPatrimonialPage = () => {
 
 
   return (
-    <div className="bg-gray-900 text-white">
+    <div className="bg-gray-900 text-white font-montserrat">
       {/* Seção 1: Hero */}
       <section className="full-width bg-gray-900 pt-2 pb-10">
         <div className="container mx-auto px-4">

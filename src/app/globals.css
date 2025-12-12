@@ -22,7 +22,6 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 html {
@@ -47,3 +46,7 @@ html {
 /* Utility to hide scrollbar */
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+.font-montserrat {
+  font-family: var(--font-montserrat);
+}
