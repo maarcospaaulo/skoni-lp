@@ -18,12 +18,12 @@ const AlavancagemPatrimonialPage = () => {
             </div>
             <div className="text-center">
               <h1 className="text-4xl md:text-6xl font-bold mb-4">
-                Aprenda a Gerar <span className="block text-gradient-amber">Renda Passiva</span> e Transforme sua Vida Financeira
+                Aprenda a Gerar <span className="block bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 text-gray-900">Renda Passiva</span> e Transforme sua Vida Financeira
               </h1>
               <p className="text-lg md:text-xl mb-6">
                 Junte-se à nossa comunidade exclusiva no WhatsApp e tenha acesso a estratégias, dicas diárias e suporte de especialistas.
               </p>
-              <div className="mt-6 text-center relative">
+              <div className="mt-12 text-center relative">
                 <div className="rotating-border-button-wrapper inline-block">
                   <button className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 text-gray-900 hover:from-amber-500 hover:via-amber-600 hover:to-amber-700 font-bold py-4 px-8 text-lg rounded-lg z-10">
                   Entrar no Grupo VIP Agora

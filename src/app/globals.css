@@ -122,16 +122,3 @@ html {
   position: relative;
   z-index: 10;
 }
-
-/* New utility for text gradients */
-.text-gradient-amber {
-  background: linear-gradient(
-    to right,
-    #fbbf24,
-    #f59e0b,
-    #d97706
-  ); /* Tailwind amber-400, amber-500, amber-600 */
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
