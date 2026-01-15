@@ -26,14 +26,21 @@ export default function AlavancagemTracker() {
     }
 
     // Facebook Pixel (isso é o que importa)
-    if (window.fbq) {
-      window.fbq('track', 'PageView');
-    }
+    // Pequeno delay para garantir que a URL já atualizou no navegador
+    setTimeout(() => {
+      if (window.fbq) {
+        window.fbq('track', 'PageView', {
+          page_location: window.location.href,
+          page_path: pathname
+        });
 
-    // Evento customizado (opcional, mas bom)
-    if (window.fbq) {
-      window.fbq('trackCustom', 'ViewAlavancagemPatrimonial');
-    }
+        // Evento customizado
+        window.fbq('trackCustom', 'ViewAlavancagemPatrimonial', {
+          url: window.location.href,
+          path: pathname
+        });
+      }
+    }, 500);
 
   }, [pathname]);
 
