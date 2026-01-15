@@ -27,20 +27,18 @@ export default function AlavancagemTracker() {
 
     // Facebook Pixel (isso é o que importa)
     // Pequeno delay para garantir que a URL já atualizou no navegador
-    setTimeout(() => {
-      if (window.fbq) {
-        window.fbq('track', 'PageView', {
-          page_location: window.location.href,
-          page_path: pathname
-        });
+    if (window.fbq) {
+      window.fbq('track', 'PageView', {
+        page_location: window.location.href,
+        page_path: pathname
+      });
 
-        // Evento customizado
-        window.fbq('trackCustom', 'ViewAlavancagemPatrimonial', {
-          url: window.location.href,
-          path: pathname
-        });
-      }
-    }, 500);
+      // Evento customizado
+      window.fbq('trackCustom', 'ViewAlavancagemPatrimonial', {
+        url: window.location.href,
+        path: pathname
+      });
+    }
 
   }, [pathname]);
 
