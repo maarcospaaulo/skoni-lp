@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import MetaPageView from "@/components/MetaPageView";
 //import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
@@ -205,6 +206,7 @@ export default function RootLayout({
             }),
           }}
         />
+        <MetaPageView />
         {children}
         {/* <WhatsAppButton /> */}
         <Script
@@ -234,7 +236,6 @@ export default function RootLayout({
             'https://connect.facebook.net/en_US/fbevents.js');
             
             fbq('init', '709113565553815'); 
-            fbq('track', 'PageView');
           `}
         </Script>
         {/* Facebook Pixel - NoScript fallback */}

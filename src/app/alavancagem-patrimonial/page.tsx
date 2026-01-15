@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { CircleCheck } from 'lucide-react';
 import { Metadata } from 'next';
-import AlavancagemTracker from '@/components/AlavancagemTracker';
 
 export const metadata: Metadata = {
   title: "Renda Passiva com Alavancagem Patrimonial - Grupo VIP WhatsApp",
@@ -44,7 +43,6 @@ const AlavancagemPatrimonialPage = () => {
 
   return (
     <div className="bg-gray-900 text-white font-montserrat">
-      <AlavancagemTracker />
       {/* Seção 1: Hero */}
       <section className="full-width bg-gray-900 pt-4 pb-10">
         <div className="container mx-auto px-4">
