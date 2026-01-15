@@ -25,20 +25,14 @@ export default function AlavancagemTracker() {
       });
     }
 
-    // Facebook Pixel (isso é o que importa)
-    // Pequeno delay para garantir que a URL já atualizou no navegador
-    if (window.fbq) {
-      window.fbq('track', 'PageView', {
-        page_location: window.location.href,
-        page_path: pathname
-      });
-
-      // Evento customizado
-      window.fbq('trackCustom', 'ViewAlavancagemPatrimonial', {
-        url: window.location.href,
-        path: pathname
-      });
-    }
+    // Facebook Pixel
+    // Dispara apenas o PageView padrão.
+    // O setTimeout garante que o Pixel leia a URL nova (pós-navegação) e não a antiga.
+    setTimeout(() => {
+      if (window.fbq) {
+        window.fbq('track', 'PageView');
+      }
+    }, 500);
 
   }, [pathname]);
 
