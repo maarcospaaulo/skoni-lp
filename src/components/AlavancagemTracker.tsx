@@ -28,7 +28,11 @@ export default function AlavancagemTracker() {
       
       // Opcional: Evento customizado para identificar a página especificamente no FB
       if (window.fbq) {
-        window.fbq('trackCustom', 'ViewAlavancagemPatrimonial');
+        window.fbq('trackCustom', 'ViewAlavancagemPatrimonial', {
+          content_name: 'Alavancagem Patrimonial',
+          current_url: window.location.href,
+          path: window.location.pathname
+        });
       }
     }
   }, []);
