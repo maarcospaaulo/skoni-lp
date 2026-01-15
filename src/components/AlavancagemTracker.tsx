@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 declare global {
   interface Window {
@@ -10,32 +11,31 @@ declare global {
 }
 
 export default function AlavancagemTracker() {
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // Google Analytics PageView
-      if (window.gtag) {
-        window.gtag('event', 'page_view', {
-          page_title: 'Alavancagem Patrimonial',
-          page_location: window.location.href,
-          page_path: window.location.pathname,
-        });
-      }
+  const pathname = usePathname();
 
-      // Facebook Pixel PageView
-      if (window.fbq) {
-        window.fbq('track', 'PageView');
-      }
-      
-      // Opcional: Evento customizado para identificar a página especificamente no FB
-      if (window.fbq) {
-        window.fbq('trackCustom', 'ViewAlavancagemPatrimonial', {
-          content_name: 'Alavancagem Patrimonial',
-          current_url: window.location.href,
-          path: window.location.pathname
-        });
-      }
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    // Google Analytics
+    if (window.gtag) {
+      window.gtag('event', 'page_view', {
+        page_path: pathname,
+        page_location: window.location.href,
+        page_title: 'Alavancagem Patrimonial',
+      });
     }
-  }, []);
+
+    // Facebook Pixel (isso é o que importa)
+    if (window.fbq) {
+      window.fbq('track', 'PageView');
+    }
+
+    // Evento customizado (opcional, mas bom)
+    if (window.fbq) {
+      window.fbq('trackCustom', 'ViewAlavancagemPatrimonial');
+    }
+
+  }, [pathname]);
 
   return null;
 }
