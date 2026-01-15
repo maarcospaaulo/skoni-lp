@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { CircleCheck } from 'lucide-react';
 import { Metadata } from 'next';
+import AlavancagemTracker from '@/components/AlavancagemTracker';
 
 export const metadata: Metadata = {
   title: "Renda Passiva com Alavancagem Patrimonial - Grupo VIP WhatsApp",
@@ -37,13 +38,13 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.png",
   },
-};  
+};
 
 const AlavancagemPatrimonialPage = () => {
 
-
   return (
     <div className="bg-gray-900 text-white font-montserrat">
+      <AlavancagemTracker />
       {/* Seção 1: Hero */}
       <section className="full-width bg-gray-900 pt-4 pb-10">
         <div className="container mx-auto px-4">
@@ -71,9 +72,14 @@ const AlavancagemPatrimonialPage = () => {
               </p>
               <div className="mt-12 text-center relative">
                 <div className="rotating-border-button-wrapper inline-block">
-                  <button className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 text-gray-900 hover:from-amber-500 hover:via-amber-600 hover:to-amber-700 font-bold py-4 px-8 text-lg rounded-lg z-10">
-                  Entrar no Grupo VIP Agora
-                  </button>
+                  <a 
+                    href="https://chat.whatsapp.com/J7ZPELbtsNlCH5x3IY7AvQ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 text-gray-900 hover:from-amber-500 hover:via-amber-600 hover:to-amber-700 font-bold py-4 px-8 text-lg rounded-lg z-10 inline-block"
+                  >
+                    Entrar no Grupo VIP Agora
+                  </a>
                 </div>
               </div>
               
@@ -120,9 +126,14 @@ const AlavancagemPatrimonialPage = () => {
             </div>
           </div>
           <div className="mt-12 text-center">
-            <button className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 text-gray-900 hover:from-amber-500 hover:via-amber-600 hover:to-amber-700 font-bold py-3 px-8 rounded-lg">
+            <a 
+              href="https://chat.whatsapp.com/J7ZPELbtsNlCH5x3IY7AvQ"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 text-gray-900 hover:from-amber-500 hover:via-amber-600 hover:to-amber-700 font-bold py-3 px-8 rounded-lg inline-block"
+            >
               Entrar na comunidade
-            </button>
+            </a>
           </div>
         </div>
       </section>
@@ -133,9 +144,14 @@ const AlavancagemPatrimonialPage = () => {
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">
             Sua jornada para a renda passiva começa aqui.<span className="block">Vagas limitadas!</span>
           </h2>
-          <button className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 text-gray-900 hover:from-amber-500 hover:via-amber-600 hover:to-amber-700 font-bold py-4 px-10 rounded-lg text-xl">
+          <a 
+            href="https://chat.whatsapp.com/J7ZPELbtsNlCH5x3IY7AvQ"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 text-gray-900 hover:from-amber-500 hover:via-amber-600 hover:to-amber-700 font-bold py-4 px-10 rounded-lg text-xl inline-block"
+          >
             Garantir minha vaga no grupo
-          </button>
+          </a>
         </div>
       </section>
     </div>
