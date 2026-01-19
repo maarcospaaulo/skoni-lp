@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import { Suspense } from "react";
+import MetaPixel from "@/components/MetaPixel";
 //import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
@@ -205,6 +207,9 @@ export default function RootLayout({
             }),
           }}
         />
+        <Suspense fallback={null}>
+          <MetaPixel />
+        </Suspense>
         {children}
         {/* <WhatsAppButton /> */}
         <Script
