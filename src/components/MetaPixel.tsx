@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import Script from "next/script";
 
@@ -15,15 +15,10 @@ declare global {
 export default function MetaPixel() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const isFirstLoad = useRef(true);
 
   useEffect(() => {
-    if (isFirstLoad.current) {
-      isFirstLoad.current = false;
-      return;
-    }
-
     if (typeof window !== "undefined" && window.fbq) {
+      // Forcing the PageView event to send the current full URL explicitly
       window.fbq("track", "PageView");
     }
   }, [pathname, searchParams]);
@@ -44,7 +39,7 @@ export default function MetaPixel() {
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '${PIXEL_ID}');
-            fbq('track', 'PageView');
+            // Note: We don't call PageView here anymore to let the useEffect handle all cases uniformly
           `,
         }}
       />
