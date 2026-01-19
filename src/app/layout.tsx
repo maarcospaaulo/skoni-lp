@@ -48,9 +48,6 @@ export const metadata: Metadata = {
       "Simule consórcio online sem cadastro e veja as parcelas na hora. Receba consultoria gratuita de um especialista para escolher a melhor opção.",
     images: ["/banner.png"],
   },
-  alternates: {
-    canonical: "https://www.skoni.com.br",
-  },
   robots: {
     index: true,
     follow: true,
