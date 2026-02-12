@@ -1,58 +1,84 @@
-import Image from 'next/image';
-import { CircleCheck } from 'lucide-react';
-import { Metadata } from 'next';
+'use client';
 
-export const metadata: Metadata = {
-  title: "Educação Financeira e Alavancagem Patrimonial - Comunidade Skoni",
-  description:
-    "Aprenda a analisar o mercado e construir sua renda passiva através de estratégias reais de alavancagem patrimonial. Entre para nosso grupo VIP e aprenda com especialistas.",
-  metadataBase: new URL("https://www.skoni.com.br"),
-  openGraph: {
-    title: "Educação Financeira e Alavancagem Patrimonial - Comunidade Skoni",
-    description:
-      "Aprenda a analisar o mercado e construir sua renda passiva através de estratégias reais de alavancagem patrimonial. Entre para nosso grupo VIP e aprenda com especialistas.",
-    url: "https://www.skoni.com.br",
-    siteName: "Skoni",
-    type: "website",
-    locale: "pt_BR",
-    images: [
-      {
-        url: "/banner.png",
-        width: 1200,
-        height: 630,
-        alt: "Alavancagem Patrimonial",
-      },
-    ],
-  },
-  alternates: {
-    canonical: "https://www.skoni.com.br",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  verification: {
-    google: "aEIJ0EtWt7UaqA0y9jhq8jbrh5FNuIvOFrfwuGtwXiw",
-  },
-  icons: {
-    icon: "/favicon.png",
-  },
+import { useState } from 'react';
+import Image from 'next/image';
+import { CircleCheck, ChevronDown, MessageCircle, ShieldCheck, GraduationCap, BarChart3, Users } from 'lucide-react';
+
+const FAQItem = ({ question, answer }: { question: string; answer: string }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="border-b border-gray-800">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full py-6 flex justify-between items-center text-left focus:outline-none"
+      >
+        <span className="text-lg font-medium text-gray-200">{question}</span>
+        <ChevronDown className={`transform transition-transform ${isOpen ? 'rotate-180' : ''} text-amber-500`} />
+      </button>
+      <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
+        <p className="text-gray-400 leading-relaxed">{answer}</p>
+      </div>
+    </div>
+  );
 };
 
 const Home = () => {
-
   return (
-    <div className="bg-gray-900 text-white font-montserrat">
+    <div className="bg-gray-900 text-white font-montserrat antialiased">
+      {/* Header Fixo */}
+      <header className="fixed top-0 w-full z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
+        <div className="container mx-auto px-4 h-20 flex justify-center md:justify-end items-center">
+          <a 
+            href="https://chat.whatsapp.com/J7ZPELbtsNlCH5x3IY7AvQ"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 text-gray-900 font-bold py-2.5 px-6 rounded-full text-sm transition-transform hover:scale-105 shadow-lg shadow-amber-500/20"
+          >
+            Entrar na Comunidade
+          </a>
+        </div>
+      </header>
+
       {/* Seção 1: Hero */}
-      <section className="full-width bg-gray-900 pt-4 pb-10">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div className="md:block relative min-h-[400px] lg:min-h-[500px] xl:min-h-[600px]">
+      <section className="relative pt-32 pb-16 overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] from-amber-900/20 to-transparent pointer-events-none"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1 text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-xs font-bold uppercase tracking-wider mb-6">
+                <ShieldCheck size={14} /> Comunidade Exclusiva
+              </div>
+              <h1 className="text-4xl md:text-5xl xl:text-7xl font-bold mb-6 leading-tight">
+                Domine a Estratégia de <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600">Renda Passiva</span>
+              </h1>
+              <p className="text-lg md:text-xl text-gray-400 mb-10 max-w-xl">
+                Aprenda a analisar o mercado e construir patrimônio com quem utiliza Inteligência de Dados e Gestão de Projetos para maximizar resultados.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <a 
+                  href="https://chat.whatsapp.com/J7ZPELbtsNlCH5x3IY7AvQ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-premium bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 text-gray-900 font-bold py-4 px-10 text-lg rounded-xl shadow-[0_0_20px_rgba(245,158,11,0.3)]"
+                >
+                  Quero aprender no Grupo VIP
+                </a>
+              </div>
+              <p className="text-sm mt-6 text-gray-500 flex items-center justify-center lg:justify-start gap-2">
+                <Users size={16} className="text-amber-500" /> Vagas limitadas para suporte individualizado
+              </p>
+            </div>
+
+            <div className="order-1 lg:order-2 relative min-h-[400px] lg:min-h-[550px]">
               <Image 
                 src="/hero.jpeg" 
-                alt="Educação e Estratégia Financeira" 
+                alt="Lorrana Pires - Skoni" 
                 fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
                 style={{objectFit: "cover"}} 
                 className="rounded-lg"
               />
@@ -61,122 +87,176 @@ const Home = () => {
               <div className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-gray-900 to-transparent"></div>
               <div className="absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-gray-900 to-transparent"></div>
             </div>
-            <div className="text-center">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                Domine a Estratégia de <span className="block bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 text-gray-900">Renda Passiva</span> com Análises Reais
-              </h1>
-              <p className="text-lg md:text-xl mb-6">
-                Saia das promessas vazias. Entre para um grupo focado em educação financeira, acompanhamento próximo e alavancagem patrimonial inteligente.
-              </p>
-              <div className="mt-12 text-center relative">
-                <div className="rotating-border-button-wrapper inline-block">
-                  <a 
-                    href="https://chat.whatsapp.com/J7ZPELbtsNlCH5x3IY7AvQ"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 text-gray-900 hover:from-amber-500 hover:via-amber-600 hover:to-amber-700 font-bold py-4 px-8 text-lg rounded-lg z-10 inline-block"
-                  >
-                    Entrar no Grupo VIP de Aprendizado
-                  </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Seção 2: O Diferencial (Cards) */}
+      <section className="py-16 bg-gray-800/50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">O que acontece dentro da Comunidade?</h2>
+            <p className="text-gray-400">Transformamos dados complexos em decisões simples para o seu bolso.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: <BarChart3 className="text-amber-500" />,
+                title: "Análise Técnica",
+                desc: "Entenda o 'porquê' de cada investimento através de dados reais."
+              },
+              {
+                icon: <MessageCircle className="text-amber-400" />,
+                title: "Acesso Direto",
+                desc: "Tira-dúvidas semanal diretamente com a Lorrana no grupo."
+              },
+              {
+                icon: <GraduationCap className="text-amber-500" />,
+                title: "Educação Ativa",
+                desc: "Aulas e materiais exclusivos sobre alavancagem patrimonial."
+              },
+              {
+                icon: <ShieldCheck className="text-amber-400" />,
+                title: "Transparência",
+                desc: "Sem promessas mágicas. Foco total em estratégia e gestão."
+              }
+            ].map((item, i) => (
+              <div key={i} className="p-8 rounded-2xl bg-gray-900 border border-gray-800 hover:border-amber-500/50 transition-colors group">
+                <div className="mb-4 p-3 rounded-lg bg-gray-800 inline-block group-hover:scale-110 transition-transform">
+                  {item.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Seção 3: Sobre Lorrana Pires */}
+      <section className="py-16 border-t border-gray-800">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            <div className="w-full lg:w-1/2">
+              <div className="relative">
+                <div className="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-amber-500"></div>
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-amber-500"></div>
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                  <Image 
+                    src="/hero.jpeg" 
+                    alt="Lorrana Pires"
+                    width={600}
+                    height={700}
+                    className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700"
+                  />
+                  <div className="absolute bottom-6 left-6 right-6 p-6 bg-gray-900/90 backdrop-blur-md border border-white/10 rounded-xl">
+                    <div className="flex items-center gap-4 text-amber-500">
+                      <GraduationCap size={32} />
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-widest text-gray-400">Especialista em</p>
+                        <p className="font-bold">Investimentos</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              
-              <p className="text-sm mt-4 text-center">Vagas limitadas para garantir a qualidade do suporte.</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Seção 3: O que você vai encontrar no grupo */}
-      <section className="full-width bg-gray-800 py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12">Como funciona nossa comunidade:</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-left">
-            <div className="flex items-start">
-            <CircleCheck className="min-h-7 min-w-7 mr-4 text-amber-400" />
-              <div>
-                <h3 className="font-semibold text-xl text-amber-400">Educação e Estratégia</h3>
-                <p className="text-gray-300">Não enviamos apenas &quot;dicas&quot;. Explicamos a tese por trás de cada movimento de alavancagem para você aprender a decidir sozinho.</p>
+            
+            <div className="w-full lg:w-1/2">
+              <h2 className="text-3xl md:text-5xl font-bold mb-8">Quem te guiará nessa jornada?</h2>
+              <div className="space-y-6 text-lg text-gray-400 leading-relaxed">
+                <p>
+                  Olá, eu sou <span className="text-white font-semibold">Lorrana Pires</span>. Minha relação com o mercado financeiro começou cedo, movida pela curiosidade técnica de como grandes patrimônios são construídos e protegidos.
+                </p>
+                <p>
+                  Com <span className="text-amber-500 font-bold">+5 anos de experiência</span>, utilizo o rigor analítico da minha formação em <span className="text-white">Engenharia pela UFMG</span> e minha expertise em <span className="text-white">Business Intelligence</span> para filtrar o ruído do mercado e focar no que realmente traz retorno.
+                </p>
+                <p>
+                  A Skoni não é apenas um grupo de sinais. É o lugar onde eu compartilho a minha visão estratégica de gestão de projetos aplicada às finanças pessoais, para que você tenha clareza e segurança em cada passo.
+                </p>
               </div>
-            </div>
-            <div className="flex items-start">
-              <CircleCheck className="min-h-7 min-w-7 mr-4 text-amber-400" />
-              <div>
-                <h3 className="font-semibold text-xl text-amber-400">Análises de Mercado na Prática</h3>
-                <p className="text-gray-300">Veja o &quot;como fazer&quot; em tempo real. Analisamos oportunidades semanais de forma técnica e transparente.</p>
-              </div>
-            </div>
-            <div className="flex items-start">
-              <CircleCheck className="min-h-7 min-w-7 mr-4 text-amber-400" />
-              <div>
-                <h3 className="font-semibold text-xl text-amber-400">Tira-Dúvidas Direto no Grupo</h3>
-                <p className="text-gray-300">Suas perguntas são respondidas por quem vive o mercado. Esclareça suas dúvidas sobre ativos e estratégias de forma personalizada.</p>
-              </div>
-            </div>
-            <div className="flex items-start">
-              <CircleCheck className="min-h-7 min-w-7 mr-4 text-amber-400" />
-              <div>
-                <h3 className="font-semibold text-xl text-amber-400">Networking Qualificado</h3>
-                <p className="text-gray-300">Troque experiências com outros investidores que buscam o mesmo objetivo: independência financeira com segurança.</p>
+              <div className="mt-10 flex items-center gap-6">
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-white">+5</p>
+                  <p className="text-xs text-gray-500 uppercase tracking-tighter">Anos de Mercado</p>
+                </div>
+                <div className="w-px h-10 bg-gray-800"></div>
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-white">BI</p>
+                  <p className="text-xs text-gray-500 uppercase tracking-tighter">Foco em Dados</p>
+                </div>
+                <div className="w-px h-10 bg-gray-800"></div>
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-white">UFMG</p>
+                  <p className="text-xs text-gray-500 uppercase tracking-tighter">Base Técnica</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Nova Seção: Sobre Lorrana Pires */}
-      <section className="full-width bg-gray-900 py-16 border-t border-gray-800">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="w-full md:w-1/3 flex justify-center">
-              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-amber-500 shadow-[0_0_20px_rgba(245,158,11,0.3)]">
-                <Image 
-                  src="/hero.jpeg" // Usando a mesma imagem por enquanto, o ideal seria uma foto de perfil
-                  alt="Lorrana Pires"
-                  fill
-                  style={{objectFit: "cover"}}
-                />
-              </div>
-            </div>
-            <div className="w-full md:w-2/3">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-amber-400">Quem te guiará nessa jornada?</h2>
-              <div className="space-y-4 text-lg text-gray-300">
-                <p>
-                  Olá, eu sou <strong>Lorrana Pires</strong>. Minha relação com o mercado financeiro não começou ontem; sou uma entusiasta e investidora por vocação desde a adolescência, movida por um interesse genuíno em como o dinheiro pode trabalhar por nós.
-                </p>
-                <p>
-                  Com mais de <strong>5 anos de experiência no mercado financeiro</strong>, sou <strong>Engenheira Civil pela UFMG</strong> e uni minha paixão pelos investimentos à minha expertise técnica como <strong>especialista em Inteligência de Negócios (BI) e Gestão de Projetos</strong>.
-                </p>
-                <p>
-                  A Skoni nasceu do meu desejo de simplificar o que parece complexo. No nosso grupo, eu trago essa visão analítica e estratégica para que você possa entender o mercado de forma clara, sem promessas milagrosas, mas com foco em resultados reais e consistentes.
-                </p>
-              </div>
-            </div>
+      {/* Seção 4: FAQ (Quebra de Objeções) */}
+      <section className="py-16 bg-gray-900">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Dúvidas Frequentes</h2>
+            <p className="text-gray-400">Tudo o que você precisa saber antes de entrar.</p>
+          </div>
+          
+          <div className="bg-gray-800/30 rounded-3xl p-8 border border-gray-800">
+            <FAQItem 
+              question="Preciso de muito dinheiro para começar?" 
+              answer="Não. O foco do grupo é justamente ensinar estratégias de alavancagem e construção de patrimônio. O mais importante é o seu compromisso com o aprendizado."
+            />
+            <FAQItem 
+              question="O grupo é apenas para quem já investe?" 
+              answer="De forma alguma. Explicamos as teses de forma didática, ideal tanto para quem está começando do zero quanto para quem já tem experiência e busca uma visão mais técnica."
+            />
+            <FAQItem 
+              question="Quanto tempo preciso dedicar por dia?" 
+              answer="As análises e dicas são enviadas de forma objetiva para que você possa consumir em poucos minutos. Você dita o seu ritmo de aprendizado."
+            />
+            <FAQItem 
+              question="Existe algum custo para entrar no grupo?" 
+              answer="No momento, o acesso à nossa comunidade no WhatsApp é gratuito, mas as vagas são limitadas para garantir que eu consiga acompanhar a qualidade das interações."
+            />
           </div>
         </div>
       </section>
 
-      {/* Seção 5: Chamada Final (Call to Action) */}
-      <section className="full-width bg-gray-800 py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-            Aprenda a construir sua liberdade financeira.
+      {/* Seção 5: Chamada Final (CTA) */}
+      <section className="py-16 relative overflow-hidden bg-gray-800/50">
+        <div className="absolute inset-0 bg-amber-600/5 pointer-events-none"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-4xl md:text-6xl font-bold mb-8 max-w-4xl mx-auto leading-tight">
+            Pronto para transformar sua visão sobre o mercado?
           </h2>
-          <p className="text-xl mb-10 text-gray-300 max-w-2xl mx-auto">
-            As vagas são limitadas para que eu consiga garantir a qualidade do acompanhamento e responder às dúvidas de cada membro pessoalmente.
+          <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
+            Junte-se a Lorrana Pires e a dezenas de outros investidores focados em resultados reais.
           </p>
           <a 
             href="https://chat.whatsapp.com/J7ZPELbtsNlCH5x3IY7AvQ"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 text-gray-900 hover:from-amber-500 hover:via-amber-600 hover:to-amber-700 font-bold py-4 px-10 rounded-lg text-xl inline-block transition-transform hover:scale-105"
+            className="btn-premium bg-white text-gray-900 hover:bg-amber-500 hover:text-white transition-all font-bold py-5 px-12 rounded-2xl text-xl inline-block shadow-2xl"
           >
-            Quero minha vaga na comunidade Skoni
+            Quero entrar agora (Grátis)
           </a>
+          <p className="mt-8 text-gray-500 flex items-center justify-center gap-2">
+            <CircleCheck className="text-amber-500" /> Acesso imediato ao grupo
+          </p>
         </div>
       </section>
+
+      {/* Footer Simples */}
+      <footer className="py-10 border-t border-gray-800 text-center text-gray-600 text-sm">
+        <div className="container mx-auto px-4">
+          <p>© 2026 Skoni. Todos os direitos reservados.</p>
+          <p className="mt-2">Educação financeira baseada em dados e estratégia.</p>
+        </div>
+      </footer>
     </div>
   );
 };

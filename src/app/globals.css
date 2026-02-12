@@ -28,97 +28,30 @@ html {
   scroll-behavior: smooth;
 }
 
-@keyframes back-and-forth {
-  0%,
-  100% {
-    transform: translateX(0);
+/* Animação de Pulso Suave (Breathing) */
+@keyframes pulse-soft {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
   }
   50% {
-    transform: translateX(0.25rem);
+    transform: scale(1.03);
+    box-shadow: 0 0 35px rgba(245, 158, 11, 0.4);
   }
 }
 
-/* Utilities for 3D Flip Card */
-.perspective-1000 {
-  perspective: 1000px;
-}
-.transform-style-preserve-3d {
-  transform-style: preserve-3d;
-}
-.rotate-y-180 {
-  transform: rotateY(180deg);
-}
-.backface-hidden {
-  backface-visibility: hidden;
-}
-
-/* Utility to hide scrollbar */
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.font-montserrat {
-  font-family: var(--font-montserrat);
-}
-
-@keyframes border-spin {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-
-.rotating-border-button-wrapper {
+.btn-premium {
   position: relative;
-  display: inline-block;
-  padding: 3px; /* Controls the thickness of the border */
-  border-radius: 0.5rem; /* Match the button's rounded-lg */
-  overflow: hidden;
-  z-index: 0;
+  transition: all 0.3s ease;
+  animation: pulse-soft 3s ease-in-out infinite;
 }
 
-.rotating-border-button-wrapper::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200%; /* Make it larger than the container */
-  height: 200%; /* Make it larger than the container */
-  background: linear-gradient(
-    0deg,
-    transparent 0%,
-    rgba(251, 191, 36, 0.8) 48%,
-    /* amber-400 with opacity */ rgba(251, 191, 36, 0.8) 52%,
-    transparent 100%
-  );
-  animation: border-spin 4s linear infinite;
-  z-index: -1;
-  border-radius: inherit;
+.btn-premium:hover {
+  transform: scale(1.06) !important;
+  animation-play-state: paused; /* Para a animação ao interagir */
+  box-shadow: 0 15px 30px -5px rgba(245, 158, 11, 0.5);
 }
 
-/* Optional: Add a subtle inner glow effect for better integration */
-.rotating-border-button-wrapper::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(251, 191, 36, 0.1); /* Subtle amber glow */
-  border-radius: inherit;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.rotating-border-button-wrapper:hover::after {
-  opacity: 1;
-}
-
-.rotating-border-button-wrapper .relative {
-  position: relative;
-  z-index: 10;
+.btn-premium:active {
+  transform: scale(0.98) !important;
 }
